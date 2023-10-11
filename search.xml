@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2023/10/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/"/>
+      <url>/2023/10/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="实验四"><a href="#实验四" class="headerlink" title="实验四"></a>实验四</h1><p><strong>(1) 创建一个目录，目录名用学号命名：</strong></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">mkdir</span> /201612345</span><br></pre></td></tr></tbody></table></figure><p><strong>(2) 查看该目录是否成功创建：</strong></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">ls</span> /</span><br></pre></td></tr></tbody></table></figure><p><strong>(3) 创建一个文本文件并上传到HDFS：</strong></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"hello hdfs"</span> &gt; /usr/local/hadoop/zhangsan.txt</span><br><span class="line">hdfs dfs -put /usr/local/hadoop/zhangsan.txt /201612345/</span><br></pre></td></tr></tbody></table></figure><p><strong>(4) 将该文件上传到HDFS的学号目录中：</strong></p><p>这已经在第三步中完成。</p><p><strong>(5) 查看该文件是否成功上传到HDFS中：</strong></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">ls</span> /201612345</span><br></pre></td></tr></tbody></table></figure><p><strong>(6) 将该文件从HDFS下载到本地目录：</strong></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -get /201612345/zhangsan.txt /home/hadoop/downloads/</span><br></pre></td></tr></tbody></table></figure><p><strong>(7) 将该文件从学号目录中拷贝到input目录中，并查看是否拷贝成功：</strong></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">cp</span> /201612345/zhangsan.txt /input/</span><br></pre></td></tr></tbody></table></figure><p><strong>(8) 在HDFS中将该文件从学号目录中删除：</strong></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">rm</span> /201612345/zhangsan.txt</span><br></pre></td></tr></tbody></table></figure><p><strong>(9) 在HDFS中将学号目录删除：</strong></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -<span class="built_in">rmdir</span> /201612345</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>yhcsb</title>
       <link href="/2023/10/10/yhcsb/"/>
       <url>/2023/10/10/yhcsb/</url>
