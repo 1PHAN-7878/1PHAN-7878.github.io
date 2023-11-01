@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>MATLABQ关于灰度直方图以及一些线性非线性变换？</title>
+      <link href="/2023/11/01/MATLABQ%E5%85%B3%E4%BA%8E%E7%81%B0%E5%BA%A6%E7%9B%B4%E6%96%B9%E5%9B%BE%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E7%BA%BF%E6%80%A7%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%EF%BC%9F/"/>
+      <url>/2023/11/01/MATLABQ%E5%85%B3%E4%BA%8E%E7%81%B0%E5%BA%A6%E7%9B%B4%E6%96%B9%E5%9B%BE%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E7%BA%BF%E6%80%A7%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%EF%BC%9F/</url>
+      
+        <content type="html"><![CDATA[<p>风和日丽，Q艮又来点任务，这次是让看一看图片（灰度图）的直方分布，加上来然后让这个灰度图像进行一些变换，反正今天讲的叫什么前映射后映射变换是迷迷糊糊的。</p><p>这个是编写的康可：</p><figure class="highlight matlab"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">img = imread(<span class="string">'C:\Users\7878\Desktop\my_image.png'</span>);</span><br><span class="line">img1 = imresize(img, <span class="number">0.3</span>);</span><br><span class="line">img1 = rgb2gray(img1);</span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>);</span><br><span class="line">imshow(img1);</span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">imhist(img1);</span><br><span class="line"></span><br><span class="line">img2 = imadjust(img1,[<span class="number">0.5</span>, <span class="number">0.6</span>], [<span class="number">0</span>, <span class="number">1</span>]);</span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">imshow(img2);</span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">imhist(img2);</span><br></pre></td></tr></tbody></table></figure><p>当使用 <code>imadjust</code> 函数时，你可以指定输入图像中要拉伸到特定亮度范围的百分比，并且你可以指定输出图像中的目标亮度范围。这允许你控制亮度值的映射方式，以改变图像的对比度和亮度。</p><p>具体来说，这些参数的含义如下：</p><ol><li><code>low_in</code>：这是输入图像中要拉伸到的亮度范围的下限。它表示输入图像中亮度较低的像素值的百分比。例如，如果 <code>low_in</code> 设置为 0.2，表示将输入图像中最暗的 20% 像素值拉伸到目标范围。</li><li><code>high_in</code>：这是输入图像中要拉伸到的亮度范围的上限。它表示输入图像中亮度较高的像素值的百分比。例如，如果 <code>high_in</code> 设置为 0.8，表示将输入图像中最亮的 80% 像素值拉伸到目标范围。</li><li><code>low_out</code>：这是输出图像中的目标亮度范围的下限。它表示输出图像中最暗的像素值应该对应的亮度值。通常，它是 0，表示黑色。</li><li><code>high_out</code>：这是输出图像中的目标亮度范围的上限。它表示输出图像中最亮的像素值应该对应的亮度值。通常，它是 1，表示白色。</li></ol><p>通过调整这些参数，你可以控制输入图像中不同亮度级别的像素如何映射到输出图像中的亮度范围，从而增强或调整图像的对比度和亮度。这些参数的选择取决于你希望达到的图像效果。</p><p><img src="C:\Users\7878\AppData\Roaming\Typora\typora-user-images\image-20231101200623801.png" alt="image-20231101200623801"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MATLAB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于git上传文件的.gitignore</title>
       <link href="/2023/10/27/%E5%85%B3%E4%BA%8Egit%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E7%9A%84-gitignore/"/>
       <url>/2023/10/27/%E5%85%B3%E4%BA%8Egit%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E7%9A%84-gitignore/</url>
