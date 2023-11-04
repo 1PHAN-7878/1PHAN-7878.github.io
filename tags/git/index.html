@@ -5,16 +5,31 @@
 方案1需要git-lfs工具支持
 方案2将大文件加入.gitignore名单
 由于我在操作时已经push出现了问题，所以需要先进行
-1git reset
+git reset
+
 我在创建了该文件之后，并没有删除之前的暂存区的内容，所以每一次commit和push都有之前的大文件，最终是折腾好。
 ==步骤如下==
 创建 .gitignore 文件：在你的 Git 仓库根目录下，创建一个名为 .gitignore 的文件。可以使用文本编辑器来创建它。
-编辑 .gitignore 文件：在 .gitignore 文件中，你可以列出你希望忽略的文件、目录或模式。每一行代表一个要忽略的项。..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/27/%E5%85%B3%E4%BA%8Egit%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E7%9A%84-gitignore/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="C:\Users\7878\AppData\Roaming\Typora\typora-user-images\image-20231017162915772.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/10/18/git/"><img class="post-cover-img js-img-fadeIn" src="C:\Users\7878\AppData\Roaming\Typora\typora-user-images\image-20231017162915772.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/git"><i class="tag post-item-tag">git</i></a><a href="/tags/%E5%AD%A6%E4%B9%A0"><i class="tag post-item-tag">学习</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/10/18/git/">git学习下的一些基本操作</a></h2><time class="has-text-grey" datetime="2023-10-18T08:25:48.000Z">2023-10-18</time><p class="is-flex-grow-2 mt-2">基础操作1git clone [ssh]
+编辑 .gitignore 文件：在 .gitignore 文件中，你可以列出你希望忽略的文件、目录或模式。每一行代表一个要忽略的项。..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/27/%E5%85%B3%E4%BA%8Egit%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E7%9A%84-gitignore/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="C:\Users\7878\AppData\Roaming\Typora\typora-user-images\image-20231017162915772.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/10/18/git/"><img class="post-cover-img js-img-fadeIn" src="C:\Users\7878\AppData\Roaming\Typora\typora-user-images\image-20231017162915772.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/git"><i class="tag post-item-tag">git</i></a><a href="/tags/%E5%AD%A6%E4%B9%A0"><i class="tag post-item-tag">学习</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/10/18/git/">git学习下的一些基本操作</a></h2><time class="has-text-grey" datetime="2023-10-18T08:25:48.000Z">2023-10-18</time><p class="is-flex-grow-2 mt-2">基础操作git clone [ssh]
 
 
 
 
-123456789101112131415161718192021222324252627282930313233343536# 执行 git status 查看整个仓库的状态git status# 使用 git add [文件名] 命令跟踪此新建文件，即把新增文件添加到暂存区，以备提交git add one.txt# 如果要撤销暂存区的修改怎么办？# 根据上图的提示，执行 git reset -- [文件名] 或者 git rm --cached [文件名] 命令即可git reset -- one.txt# 用于查看 Git 仓库中所有分支（包括本地和远程分支）详细信息的命令。git branch -avv# 执行 git commit 命令生成一个新的..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/18/git/">更多</a></section></article></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container tag-widget is-in-tag-page"><h3>标签</h3><section><a href="/tags/yu"><span class="tag post-item-tag" style="margin-bottom: 5px;">yu</span></a><a href="/tags/git"><span class="tag post-item-tag" style="margin-bottom: 5px;">git</span></a><a href="/tags/%E5%AD%A6%E4%B9%A0"><span class="tag post-item-tag" style="margin-bottom: 5px;">学习</span></a><a href="/tags/MATLAB"><span class="tag post-item-tag" style="margin-bottom: 5px;">MATLAB</span></a></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
+# 执行 git status 查看整个仓库的状态
+git status
+
+# 使用 git add [文件名] 命令跟踪此新建文件，即把新增文件添加到暂存区，以备提交
+git add one.txt
+
+# 如果要撤销暂存区的修改怎么办？
+# 根据上图的提示，执行 git reset -- [文件名] 或者 git rm --cached [文件名] 命令即可
+git reset -- one.txt
+
+# 用于查看 Git 仓库中所有分支（包括本地和远程分支）详细信息的命令。
+git branch -avv
+# 执行 git commit 命令生成一个新的提交，一个必须的选项 -m 用来提供该提交的备注
+git commit -m 'commit one'
+..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/18/git/">更多</a></section></article></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container tag-widget is-in-tag-page"><h3>标签</h3><section><a href="/tags/MATLAB"><span class="tag post-item-tag" style="margin-bottom: 5px;">MATLAB</span></a><a href="/tags/git"><span class="tag post-item-tag" style="margin-bottom: 5px;">git</span></a><a href="/tags/%E5%AD%A6%E4%B9%A0"><span class="tag post-item-tag" style="margin-bottom: 5px;">学习</span></a><a href="/tags/yu"><span class="tag post-item-tag" style="margin-bottom: 5px;">yu</span></a></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
 window.addEventListener('resize', $claudia.throttle(function () {
     var images = document.querySelectorAll('.js-img-fadeIn')

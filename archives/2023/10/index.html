@@ -5,7 +5,8 @@
 方案1需要git-lfs工具支持
 方案2将大文件加入.gitignore名单
 由于我在操作时已经push出现了问题，所以需要先进行
-1git reset
+git reset
+
 我在创建了该文件之后，并没有删除之前的暂存区的内容，所以每一次commit和push都有之前的大文件，最终是折腾好。
 ==步骤如下==
 创建 .gitignore 文件：在你的 Git 仓库根目录下，创建一个名为 .gitignore 的文件。可以使用文本编辑器来创建它。
@@ -14,27 +15,42 @@
 时间一分一秒地过去，我试图将注意力集中在任务上，忽略掉内心的不安和压力。我意识到，即使紧张也无法改变现实，唯一的解决办法就是面对并尽力去完成作业。
 逐渐地，我发现自己进入了一种工作的节奏。通过不断努力，我开始逐渐克服恐惧和焦虑，专注于解决问题和完成任务。
 最终，我完成了作业，并在一半检查时交给了Q根。我深呼吸一口气，希望我的努力能够得到认可。无论结果如何，我知道我已经尽力了，并从中学到了如何应对压力和困难。
-这次经历让我明白，当面临紧张和压力时，保持冷静和专注非常重要。虽然一开始..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/25/MATLABQ%E5%85%A5%E9%97%A8%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%83%8F%E7%9A%84%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC%E9%95%9C%E5%83%8F%E4%B8%8E%E5%88%86%E6%9E%90/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="C:\Users\7878\AppData\Roaming\Typora\typora-user-images\image-20231017162915772.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/10/18/git/"><img class="post-cover-img js-img-fadeIn" src="C:\Users\7878\AppData\Roaming\Typora\typora-user-images\image-20231017162915772.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/git"><i class="tag post-item-tag">git</i></a><a href="/tags/%E5%AD%A6%E4%B9%A0"><i class="tag post-item-tag">学习</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/10/18/git/">git学习下的一些基本操作</a></h2><time class="has-text-grey" datetime="2023-10-18T08:25:48.000Z">2023-10-18</time><p class="is-flex-grow-2 mt-2">基础操作1git clone [ssh]
+这次经历让我明白，当面临紧张和压力时，保持冷静和专注非常重要。虽然一开始..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/25/MATLABQ%E5%85%A5%E9%97%A8%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%83%8F%E7%9A%84%E5%B9%B3%E7%A7%BB%E6%97%8B%E8%BD%AC%E9%95%9C%E5%83%8F%E4%B8%8E%E5%88%86%E6%9E%90/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="C:\Users\7878\AppData\Roaming\Typora\typora-user-images\image-20231017162915772.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/10/18/git/"><img class="post-cover-img js-img-fadeIn" src="C:\Users\7878\AppData\Roaming\Typora\typora-user-images\image-20231017162915772.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/git"><i class="tag post-item-tag">git</i></a><a href="/tags/%E5%AD%A6%E4%B9%A0"><i class="tag post-item-tag">学习</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/10/18/git/">git学习下的一些基本操作</a></h2><time class="has-text-grey" datetime="2023-10-18T08:25:48.000Z">2023-10-18</time><p class="is-flex-grow-2 mt-2">基础操作git clone [ssh]
 
 
 
 
-123456789101112131415161718192021222324252627282930313233343536# 执行 git status 查看整个仓库的状态git status# 使用 git add [文件名] 命令跟踪此新建文件，即把新增文件添加到暂存区，以备提交git add one.txt# 如果要撤销暂存区的修改怎么办？# 根据上图的提示，执行 git reset -- [文件名] 或者 git rm --cached [文件名] 命令即可git reset -- one.txt# 用于查看 Git 仓库中所有分支（包括本地和远程分支）详细信息的命令。git branch -avv# 执行 git commit 命令生成一个新的..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/18/git/">更多</a></section></article><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><time class="has-text-grey" datetime="2023-10-11T08:49:36.373Z">2023-10-11</time><p class="is-flex-grow-2 mt-2">实验四(1) 创建一个目录，目录名用学号命名：
-1hdfs dfs -mkdir /201612345
+# 执行 git status 查看整个仓库的状态
+git status
+
+# 使用 git add [文件名] 命令跟踪此新建文件，即把新增文件添加到暂存区，以备提交
+git add one.txt
+
+# 如果要撤销暂存区的修改怎么办？
+# 根据上图的提示，执行 git reset -- [文件名] 或者 git rm --cached [文件名] 命令即可
+git reset -- one.txt
+
+# 用于查看 Git 仓库中所有分支（包括本地和远程分支）详细信息的命令。
+git branch -avv
+# 执行 git commit 命令生成一个新的提交，一个必须的选项 -m 用来提供该提交的备注
+git commit -m 'commit one'
+..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/18/git/">更多</a></section></article><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><time class="has-text-grey" datetime="2023-10-11T08:49:36.373Z">2023-10-11</time><p class="is-flex-grow-2 mt-2">实验四(1) 创建一个目录，目录名用学号命名：
+hdfs dfs -mkdir /201612345
 
 (2) 查看该目录是否成功创建：
-1hdfs dfs -ls /
+hdfs dfs -ls /
 
 (3) 创建一个文本文件并上传到HDFS：
-12echo &quot;hello hdfs&quot; &amp;gt; /usr/local/hadoop/zhangsan.txthdfs dfs -put /usr/local/hadoop/zhangsan.txt /201612345/
+echo &quot;hello hdfs&quot; &amp;gt; /usr/local/hadoop/zhangsan.txt
+hdfs dfs -put /usr/local/hadoop/zhangsan.txt /201612345/
 
 (4) 将该文件上传到HDFS的学号目录中：
 这已经在第三步中完成。
 (5) 查看该文件是否成功上传到HDFS中：
-1hdfs dfs -ls /201612345
+hdfs dfs -ls /201612345
 
 (6) 将该文件从HDFS下载到本地目录：
-1hdfs dfs -get /201612345/zhan..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="E:\hexo\1PHAN-7878.github.io\source\images\fengjing.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/10/10/yhcsb/"><img class="post-cover-img js-img-fadeIn" src="E:\hexo\1PHAN-7878.github.io\source\images\fengjing.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/yu"><i class="tag post-item-tag">yu</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/10/10/yhcsb/">yhcsb</a></h2><time class="has-text-grey" datetime="2023-10-10T06:11:06.000Z">2023-10-10</time><p class="is-flex-grow-2 mt-2">
+hdfs dfs -get /201612345/zhangsan...</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="E:\hexo\1PHAN-7878.github.io\source\images\fengjing.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/10/10/yhcsb/"><img class="post-cover-img js-img-fadeIn" src="E:\hexo\1PHAN-7878.github.io\source\images\fengjing.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/yu"><i class="tag post-item-tag">yu</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/10/10/yhcsb/">yhcsb</a></h2><time class="has-text-grey" datetime="2023-10-10T06:11:06.000Z">2023-10-10</time><p class="is-flex-grow-2 mt-2">
 </p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/10/10/yhcsb/">更多</a></section></article></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container archives-widget is-in-archive-page"><h3>归档</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
 window.addEventListener('resize', $claudia.throttle(function () {
