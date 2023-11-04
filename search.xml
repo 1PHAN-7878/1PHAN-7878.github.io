@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>hexo无法显示图片的问题解决</title>
+      <link href="/2023/11/04/hexo%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+      <url>/2023/11/04/hexo%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+      
+        <content type="html"><![CDATA[<p>最近发现在上传一些包含图片的md文件时不能正常的显示，于是去寻找解决办法。</p><p>md文件中插入图片的语法为<code>![]()</code></p><p>总体来说就是路径不对，无法找到正确的路径，于是更改默认的路径例如</p><p><img src="/../images/image-20231104133817100.png" alt="image-20231104133817100"></p><p>我在source文件夹下建立了images的文件夹来存储图片，但是每次都要这样写一下路径不，不是嘞。</p><p>按照typora的偏好设置，可以让他为我们自己配置这样的路径。</p><p><img src="/../images/image-20231104133941585.png" alt="image-20231104133941585"></p><p>如此一来在执行</p><pre><code>hexo generatehexo deploy</code></pre><p>即可发现成功显示图片</p><p><img src="/../images/image-20231104134052640.png" alt="image-20231104134052640"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MATLABQ关于灰度直方图以及一些线性非线性变换？</title>
       <link href="/2023/11/01/MATLABQ%E5%85%B3%E4%BA%8E%E7%81%B0%E5%BA%A6%E7%9B%B4%E6%96%B9%E5%9B%BE%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E7%BA%BF%E6%80%A7%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%EF%BC%9F/"/>
       <url>/2023/11/01/MATLABQ%E5%85%B3%E4%BA%8E%E7%81%B0%E5%BA%A6%E7%9B%B4%E6%96%B9%E5%9B%BE%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E7%BA%BF%E6%80%A7%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%EF%BC%9F/</url>
