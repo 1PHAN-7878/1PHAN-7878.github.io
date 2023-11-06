@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>P1002 [NOIP2002 普及组] 过河卒解析</title>
+      <link href="/2023/11/06/P1002-NOIP2002-%E6%99%AE%E5%8F%8A%E7%BB%84-%E8%BF%87%E6%B2%B3%E5%8D%92%E8%A7%A3%E6%9E%90/"/>
+      <url>/2023/11/06/P1002-NOIP2002-%E6%99%AE%E5%8F%8A%E7%BB%84-%E8%BF%87%E6%B2%B3%E5%8D%92%E8%A7%A3%E6%9E%90/</url>
+      
+        <content type="html"><![CDATA[<h1 id="NOIP2002-普及组-过河卒"><a href="#NOIP2002-普及组-过河卒" class="headerlink" title="[NOIP2002 普及组] 过河卒"></a>[NOIP2002 普及组] 过河卒</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>棋盘上 $A$ 点有一个过河卒，需要走到目标 $B$ 点。卒行走的规则：可以向下、或者向右。同时在棋盘上 $C$ 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。</p><p>棋盘用坐标表示，$A$ 点 $(0, 0)$、$B$ 点 $(n, m)$，同样马的位置坐标是需要给出的。</p><p><img src="/../images/f3wwgqj6.png"></p><p>现在要求你计算出卒从 $A$ 点能够到达 $B$ 点的路径的条数，假设马的位置是固定不动的，并不是卒走一步马走一步。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一行四个正整数，分别表示 $B$ 点坐标和马的坐标。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个整数，表示所有的路径条数。</p><h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><pre><code>6 6 3 3</code></pre><h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><pre><code>6</code></pre><h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于 $100 %$ 的数据，$1 \le n, m \le 20$，$0 \le$ 马的坐标 $\le 20$。</p><p><strong>【题目来源】</strong></p><p>NOIP 2002 普及组第四题</p><p>分析得知可以按照递推的方式向后做，因为没有向前的可以影响的。</p><pre><code class="c++">#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;vector&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;cmath&gt;#include &lt;cstdlib&gt;#include &lt;queue&gt;#define LL long long#define endl "\n"#define int long long#define rg register#define pli pair&lt;LL,int&gt;#define pil pair&lt;int,LL&gt;#define debug(x) std:: cout &lt;&lt; "---DEBUG--- " &lt;&lt; x &lt;&lt; " -----DEBUG----\n"#define rep(a,b,c) for(int i = a; i &lt; b; i += c)#define repr(a,b,c) for(int i = a; i &gt; b; i -= c)using namespace std;int dp[50][59];signed main() {    int n, m;    int a, b;    cin &gt;&gt; n &gt;&gt; m;    cin &gt;&gt; a &gt;&gt; b;    n++,m++,a++,b++;    int x[10], y[10];    x[1]=a-1;    y[1]=b-2;    x[2]=a-2;    y[2]=b-1;    x[3]=a+1;    y[3]=b-2;    x[4]=a+2;    y[4]=b-1;    x[5]=a-1;    y[5]=b+2;    x[6]=a-2;    y[6]=b+1;    x[7]=a+1;    y[7]=b+2;    x[8]=a+2;    y[8]=b+1;    x[9]=a;    y[9]=b;    dp[1][1]=1;    for(int i = 1; i &lt;= n; i++){        for(int j = 1; j &lt;= m; j++){            int flag = 1;            for(int k = 1; k &lt;= 9; k++){                if(x[k] == i &amp;&amp; y[k] == j) flag = 0;            }            if(flag == 0) continue;            dp[i][j] += dp[i][j-1] + dp[i-1][j];        }    }    cout &lt;&lt; dp[n][m];    return 0;}</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MyBatis使用</title>
       <link href="/2023/11/04/MyBatis%E4%BD%BF%E7%94%A8/"/>
       <url>/2023/11/04/MyBatis%E4%BD%BF%E7%94%A8/</url>
