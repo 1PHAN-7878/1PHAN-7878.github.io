@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>P1004 [NOIP2000 提高组] 方格取数解析</title>
+      <link href="/2023/11/06/P1004-NOIP2000-%E6%8F%90%E9%AB%98%E7%BB%84-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0%E8%A7%A3%E6%9E%90/"/>
+      <url>/2023/11/06/P1004-NOIP2000-%E6%8F%90%E9%AB%98%E7%BB%84-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0%E8%A7%A3%E6%9E%90/</url>
+      
+        <content type="html"><![CDATA[<h1 id="NOIP2000-提高组-方格取数"><a href="#NOIP2000-提高组-方格取数" class="headerlink" title="[NOIP2000 提高组] 方格取数"></a>[NOIP2000 提高组] 方格取数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>设有 $N \times N$ 的方格图 $(N \le 9)$，我们将其中的某些方格中填入正整数，而其他的方格中则放入数字 $0$。如下图所示（见样例）:</p><p><img src="/../images/zj4bo91w.png"></p><p>某人从图的左上角的 $A$ 点出发，可以向下行走，也可以向右走，直到到达右下角的 $B$ 点。在走过的路上，他可以取走方格中的数（取走后的方格中将变为数字 $0$）。<br>此人从 $A$ 点到 $B$ 点共走两次，试找出 $2$ 条这样的路径，使得取得的数之和为最大。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入的第一行为一个整数 $N$（表示 $N \times N$ 的方格图），接下来的每行有三个整数，前两个表示位置，第三个数为该位置上所放的数。一行单独的 $0$ 表示输入结束。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>只需输出一个整数，表示 $2$ 条路径上取得的最大的和。</p><h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><pre><code>82 3 132 6  63 5  74 4 145 2 215 6  46 3 157 2 140 0  0</code></pre><h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><pre><code>67</code></pre><h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>NOIP 2000 提高组第四题</p><p>使用四维的dp，因为这里来说，可以ij当做第一次走过到了的点，kl当做第二次走过到了的点，所以就是</p><pre><code class="c++">dp[i][j][k][l] = //最大值dp[i-1][j][k-1][l]dp[i][j-1][k-1][l]dp[i-1][j][k][l-1]dp[i][j-1][k][l-1]加上本身所到了的a[i][j],a[k][l]如果两个是一样的位置，那么只要加一次</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>P1002 [NOIP2002 普及组] 过河卒解析</title>
       <link href="/2023/11/06/P1002-NOIP2002-%E6%99%AE%E5%8F%8A%E7%BB%84-%E8%BF%87%E6%B2%B3%E5%8D%92%E8%A7%A3%E6%9E%90/"/>
       <url>/2023/11/06/P1002-NOIP2002-%E6%99%AE%E5%8F%8A%E7%BB%84-%E8%BF%87%E6%B2%B3%E5%8D%92%E8%A7%A3%E6%9E%90/</url>
