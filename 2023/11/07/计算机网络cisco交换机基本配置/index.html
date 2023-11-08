@@ -1,0 +1,207 @@
+<!DOCTYPE html><html class="appearance-dark" lang="zh-CN"><head><meta charset="UTF-8"><title>计算机网络cisco交换机基本配置</title><meta name="description" content="welcome！"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="实验四 交换机的基本配置一、实验目的1.了解交换机的作用。
+2.掌握交换机的基本配置方法。
+3.熟悉Cisco Packet Tracer的使用。
+二、实验内容1．以星型结构为例，练习使用Cisco Packet Tracer画出网络拓扑图。
+2．掌握交换机的基本配置模式，练习交换机的基本配置命令。
+三、实验原理1．交换机的基本配置模式：
+常见的配置模式有：用户模式、特权模式、全局配置模式、接口配置模式、VLAN配置模式和访问配置模式。
+用户模式：switch&amp;gt;   一旦与交换机建立连接，就进入了用户模式。在这种模式下，只能查看网络设备的运行状态和简单的统计信息。
+特权模式：Switch#   在该模式下可为交换机设置账号和密码。
+进入方法：在默认的用户模式下输入：enable 进入。
+退出方法：输：.."><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">计算机网络cisco交换机基本配置</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%9B%9B-%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-text">实验四 交换机的基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="toc-text">二、实验内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="toc-text">三、实验原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">四、实验步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E8%A6%81%E6%B1%82"><span class="toc-text">五、实验报告要求</span></a></li></ol></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><i class="tag post-item-tag">计算机网络</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">计算机网络cisco交换机基本配置</h1><time class="has-text-grey" datetime="2023-11-07T06:16:57.000Z">2023-11-07</time><article class="mt-2 post-content"><h1 id="实验四-交换机的基本配置"><a href="#实验四-交换机的基本配置" class="headerlink" title="实验四 交换机的基本配置"></a>实验四 交换机的基本配置</h1><h3 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><p>1.了解交换机的作用。</p>
+<p>2.掌握交换机的基本配置方法。</p>
+<p>3.熟悉Cisco Packet Tracer的使用。</p>
+<h3 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h3><p>1．以星型结构为例，练习使用Cisco Packet Tracer画出网络拓扑图。</p>
+<p>2．掌握交换机的基本配置模式，练习交换机的基本配置命令。</p>
+<h3 id="三、实验原理"><a href="#三、实验原理" class="headerlink" title="三、实验原理"></a>三、实验原理</h3><p>1．交换机的基本配置模式：</p>
+<p>常见的配置模式有：用户模式、特权模式、全局配置模式、接口配置模式、VLAN配置模式和访问配置模式。</p>
+<p><strong>用户模式</strong>：switch&gt;   一旦与交换机建立连接，就进入了用户模式。在这种模式下，只能查看网络设备的运行状态和简单的统计信息。</p>
+<p><strong>特权模式</strong>：Switch#   在该模式下可为交换机设置账号和密码。</p>
+<p>进入方法：在默认的用户模式下输入：enable 进入。</p>
+<p>退出方法：输：exit 退回到用户模式。</p>
+<p>注意用户模式和特权模式的前面代码的区别：一个是switch&gt;；一个是Switch#。</p>
+<p><strong>全局配置模式</strong>：(config)#   在该模式下可对交换机的全局参数进行配置。</p>
+<p>进入方法：在特权模式下，使用命令“configure terminal（或者简写成conf t）”</p>
+<p><strong>接口配置模式</strong>：(config-if)#   在该模式下，仅对该接口的参数进行配置</p>
+<p>进入方法：在全局配置模式下，使用命令“interface 接口名</p>
+<p><strong>VLAN配置模式</strong>：(config-vlan)#</p>
+<p>进入方法：在全局配置模式下输入 vlan database 进入</p>
+<p><strong>访问配置模式：</strong>(config-line)#</p>
+<p>进入方法：在全局配置模式下输入line vty 线路编号 进入</p>
+<p>备注：</p>
+<p>1）在任何模式下，用户在输入命令时，不用全部将其输入，只要前几个字母能够唯一标识该命令即可，此时按Tab键将显示全称。</p>
+<p>如：interface serial 0/1可以写成：int s0/1</p>
+<p>2）在任何模式下，输入一个“？”即可显示所有在该模式下的命令。</p>
+<p>3）如果不会拼写某个命令，可以键入开始的几个字母，在其后紧跟一个“？”，交换机即显示有什么样的命令与其匹配。</p>
+<p>4）如果不知道命令后面的参数应该是什么，可以在该命令的关键字后加一个空格，键入“？”，交换机即会提示与“？”对应的参数是什么，例如：Switch#show ？</p>
+<p>5）要删除某条配置命令，可在原配置命令前加一个no和空格。</p>
+<p>6）退回上一层模式用“exit”，退回到特权模式用“end”</p>
+<p>7）查看交换机配置文件信息用==show startup-config==，查看当前所有配置信息用==show running-config==。保存当前配置用==copy running-config startup-config==（若没保存，重启后配置丢失）。重启交换机用reload命令。这些命令需要在特权模式下输入。</p>
+<p>2．配置交换机(网管型交换机)，首先要把交换机和电脑连接，连接方法是用专门的Console线连接交换机的Console端口和计算机的COM口。现在电脑如果没有COM口，用RS232转USB数据线即可。</p>
+<p>可进行网络管理的交换机上一般都有一个“Console”端口，它是专门用于对交换机进行配置和管理的。通过Console端口连接并配置交换机，是配置和管理交换机必须经过的步骤。因为其他方式的配置往往需要借助于IP地址、域名或设备名称才可以实现，而新购买的交换机显然不可能内置有这些参数，所以Console端口是最常用、最基本的交换机管理和配置端口。</p>
+<p>Console线也分为两种，一种是串行线，即两端均为串行接口(两端均为母头或一端为公头，另一端为母头)，两端可以分别插入至计算机的串口和交换机的Console端口;另一种是两端均为RJ-45接头(RJ-45-to-RJ-45)的扁平线。</p>
+<p>硬件连接好了，就要进行软件配置，安装Console数据线的驱动，并使用系统自带的仿真终端软件，设置好波特率、数据位等信息后，通过交换机的出厂默认用户名和密码就可以登陆交换机。</p>
+<h3 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h3><p>在模拟器中构建一个如下图所示的网络拓扑图，PC0和PC1使用直通线与交换就的f0/1口和f0/2口相连，PC3使用RS232接口通过Console线缆与交换机的Console接口连接。配置每个PC的IP地址如下图所示，子网掩码都为255.255.255.0。</p>
+<p><img src="/../images/clip_image002.gif" alt="说明: C:\Users\LZ\AppData\Local\Temp\1603173757(1).png"></p>
+<p>1）连接到交换机</p>
+<p>对交换机的第一次配置，要在PC3的配置窗口的Desktop选项卡下，选择Terminal，打开下图所示对话框，</p>
+<p><img src="/../images/clip_image004.gif" alt="说明: C:\Users\LZ\AppData\Local\Temp\1603174148(1).png"></p>
+<p>按下OK键开始进入交换机的配置。</p>
+<p>也可以直接单击交换机，点击CLI标签进行配置。</p>
+<p>请输入以下命令，思考并练习。</p>
+<p>2）修改交换机的名称</p>
+<pre><code class="shell">Switch&gt;                         用户模式
+
+Switch&gt;enable                      enable进入特权模式
+
+Switch#config terminal                   进入全局配置模式
+
+Switch(config)#hostname SW                设置交换机名称为SW
+</code></pre>
+<p>3）设置口令</p>
+<pre><code class="shell">SW(config)#enable password cisco              设置使能口令cisco
+
+SW(config)#enable secret cisco1                设置使能密码cisco1
+
+SW(config)#line vty 0 4             开启5个vty会话线路，线路编号为0-4
+
+SW(config-line)#password ptxy         设置远程登录密码
+
+SW(config-line)#login             设置在远程登录时用密码验证
+
+SW(config-line)#end              保存并退出
+</code></pre>
+<p>注：enable password在交换机的配置文件中以明文形式存储；而enable secret以密文形式存储如果同时设置两个口令，则只有enable secret有效，为了安全起见，通常只配置enable secret。</p>
+<p>当需要远程登录（如TELNET）管理交换机时，必须有line vty 0 4开始的这三行命令，line vty 0 4表示开启0-4共5条远程终端会话线路，password ptxy设置远程登录密码，login这里如果写成no login，则远程登录时不需要密码。</p>
+<p>4）配置交换机的管理IP地址和默认网关</p>
+<p>交换机完成首次配置后，后期可能需要通过TELNET等方式对其进行远程管理，这时就需要设置交换机的IP地址和默认网关等管理信息，具体命令如下：</p>
+<pre><code class="shell">SW&gt;en
+
+Password:                  输入前面设置的使能密码cisco1
+
+SW#conf t
+
+SW(config)#interface vlan1           进入VLAN1虚拟接口配置模式
+
+SW(config-if)#ip address 192.168.1.8 255.255.255.0    设置交换机的IP地址与子网掩码
+
+SW(config-if)#no shutdown              激活该接口
+
+SW(config-if)#exit                  返回到上一层模式
+
+SW(config)#ip default-gateway 192.168.1.8        设置交换机默认网关
+
+SW(config)#end
+
+SW#
+</code></pre>
+<p>此时，在PC0或PC1的配置窗口的Desktop选项卡下，打开Command Prompt窗口，输入命令telnet 192.168.1.8，当提示要输密码时，输入前面设置的远程登录密码就成功连接到了交换机。</p>
+<h3 id="五、实验报告要求"><a href="#五、实验报告要求" class="headerlink" title="五、实验报告要求"></a>五、实验报告要求</h3><p>1．练习使用Cisco Packet Tracer 画出网络拓扑结构图，掌握交换机的基本配置模式，练习交换机的基本配置命令，并截屏+文字记录相关步骤。提交word文档，文件名为：学号姓名实验四。先不交，与后续交换机实验报告一起交。</p>
+<p><img src="/../images/image-20231107142742550.png" alt="image-20231107142742550"></p>
+<p> <img src="/../images/image-20231107142901504.png" alt="image-20231107142901504"></p>
+<pre><code class="shell">version 12.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SW
+!
+enable secret 5 $1$mERr$q.MA2tj.WFptzvbifq/1i.
+enable password cisco
+!
+!
+spanning-tree mode pvst
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+!
+line con 0
+!
+line vty 0 4
+ password ptxy
+ login
+line vty 5 15
+ login
+!
+!
+</code></pre>
+<pre><code>version 12.1: 这一行指定了配置文件所使用的Cisco IOS软件的版本。
+
+no service timestamps log datetime msec 和 no service timestamps debug datetime msec: 这两行命令禁用了日志和调试信息中的时间戳，并且不包括毫秒级别的时间信息。这可以使日志文件更加简洁。
+
+no service password-encryption: 这一行命令禁用了密码加密。通常情况下，Cisco设备会对配置中的密码进行加密存储，但这个命令会取消加密，以便在配置文件中明文显示密码。
+
+hostname SW: 这一行命令设置了设备的主机名为 "SW"，这是设备的标识符。
+
+enable secret 5 $1$mERr$q.MA2tj.WFptzvbifq/1i.: 这一行设置了特权模式的密码，这是用于访问设备特权模式的密码。密码是加密的，以提高安全性。密码的实际值是 "
+1
+1mERr$q.MA2tj.WFptzvbifq/1i."。
+
+enable password cisco: 这一行设置了备用的特权模式密码，如果启用密码被忘记，可以使用这个密码来访问特权模式。不像前面的密码，这个密码以明文形式存储在配置中。
+
+spanning-tree mode pvst: 这一行命令配置了Spanning Tree Protocol (STP) 的模式为Per-VLAN Spanning Tree (PVST)。PVST是Cisco的STP实现，允许每个VLAN都有自己的STP实例，以提高网络的冗余性和可靠性。
+
+接口配置部分: 这一部分包括了多个FastEthernet接口（FastEthernet0/1 到 FastEthernet0/24）。在这个示例中，这些接口没有配置IP地址或其他参数，因此它们可能是未配置的接口或者处于交换机模式。
+
+interface Vlan1: 这一行配置了VLAN 1 接口，但没有分配IP地址，并将接口关闭（shutdown）。通常情况下，VLAN 1 用于管理目的，但在这个配置中，它被禁用了。
+
+line con 0 和 line vty 0 4 配置了控制台和虚拟终端（Telnet或SSH）的访问。它们分别设置了密码（控制台密码为 "ptxy"）和允许登录。
+
+line vty 5 15 配置了更多的虚拟终端线路，允许更多的远程Telnet或SSH会话。
+</code></pre>
+<p>最后在交换机这里进行配置，让他可以被远程的telnet</p>
+<p><img src="/../images/image-20231107144113020.png" alt="image-20231107144113020"></p>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9C%B0%E5%9D%80%E5%AD%A6%E4%B9%A0/" title="交换机地址学习"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: 交换机地址学习</span></a><a class="button is-default" href="/2023/11/06/P1006-NOIP2008-%E6%8F%90%E9%AB%98%E7%BB%84-%E4%BC%A0%E7%BA%B8%E6%9D%A1/" title="P1006 [NOIP2008 提高组] 传纸条"><span class="has-text-weight-semibold">下一页: P1006 [NOIP2008 提高组] 传纸条</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2023</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>

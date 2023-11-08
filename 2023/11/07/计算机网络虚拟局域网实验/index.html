@@ -1,0 +1,201 @@
+<!DOCTYPE html><html class="appearance-dark" lang="zh-CN"><head><meta charset="UTF-8"><title>计算机网络虚拟局域网实验</title><meta name="description" content="welcome！"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="实验六 虚拟局域网（VLAN）实验一、实验目的1.掌握VLAN的划分方法。
+2.理解划分VLAN的作用。
+3.掌握VTP的配置方法。
+二、实验内容1.画出网络拓扑图。
+2.进行VLAN的划分。
+3.测试VLAN的通信效果。
+4.进行VTP的配置并测试通信效果。
+三、实验原理VLAN就是虚拟局域网，它用于把物理上直接相连的网络从逻辑上划分成多个子网。每一个VLAN对应着一个广播域，处于不同VLAN的主机不能直接进行通信，而必须借助第三层交换技术。
+在大型网络中交换机较多的情况下，可以利用交换机的VTP模式进行VLAN划分的学习，统一网络结构，减少网络配置的工作量。
+四、实验步骤1、基本VLAN配置
+在模拟器中新建一个如下图所示的网络拓扑图，并设置好每台PC的IP地址和子网掩码。
+
+单击交换机，在CLI标签下输.."><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">计算机网络虚拟局域网实验</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%85%AD-%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%88VLAN%EF%BC%89%E5%AE%9E%E9%AA%8C"><span class="toc-text">实验六 虚拟局域网（VLAN）实验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="toc-text">二、实验内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="toc-text">三、实验原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">四、实验步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E8%A6%81%E6%B1%82"><span class="toc-text">五、实验报告要求</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><i class="tag post-item-tag">计算机网络</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">计算机网络虚拟局域网实验</h1><time class="has-text-grey" datetime="2023-11-07T07:51:45.000Z">2023-11-07</time><article class="mt-2 post-content"><h3 id="实验六-虚拟局域网（VLAN）实验"><a href="#实验六-虚拟局域网（VLAN）实验" class="headerlink" title="实验六 虚拟局域网（VLAN）实验"></a>实验六 虚拟局域网（VLAN）实验</h3><h3 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><p>1.掌握VLAN的划分方法。</p>
+<p>2.理解划分VLAN的作用。</p>
+<p>3.掌握VTP的配置方法。</p>
+<h3 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h3><p>1.画出网络拓扑图。</p>
+<p>2.进行VLAN的划分。</p>
+<p>3.测试VLAN的通信效果。</p>
+<p>4.进行VTP的配置并测试通信效果。</p>
+<h3 id="三、实验原理"><a href="#三、实验原理" class="headerlink" title="三、实验原理"></a>三、实验原理</h3><p>VLAN就是虚拟局域网，它用于把物理上直接相连的网络从逻辑上划分成多个子网。每一个VLAN对应着一个广播域，处于不同VLAN的主机不能直接进行通信，而必须借助第三层交换技术。</p>
+<p>在大型网络中交换机较多的情况下，可以利用交换机的VTP模式进行VLAN划分的学习，统一网络结构，减少网络配置的工作量。</p>
+<h3 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h3><p><strong>1、基本VLAN配置</strong></p>
+<p>在模拟器中新建一个如下图所示的网络拓扑图，并设置好每台PC的IP地址和子网掩码。</p>
+<p><img src="/../images/clip_image002.png" alt="img"></p>
+<p>单击交换机，在CLI标签下输入以下命令（注意，逐条输入。不能直接复制粘贴。边输入边思考命令的含义）</p>
+<pre><code class="shell">Switch0：
+
+Switch&gt;enable
+
+Switch#conf t: 进入全局配置模式，允许你对交换机进行配置。
+
+Switch(config)#vlan 100: 创建一个VLAN 100。这个命令将你带入VLAN配置模式，允许你对该VLAN的属性进行配置。
+
+Switch(config-vlan)#exit: 退出VLAN配置模式，返回到全局配置模式。
+
+Switch(config)#vlan 200: 创建另一个VLAN，VLAN 200。
+
+Switch(config-vlan)#exit: 再次退出VLAN配置模式。
+
+Switch(config)#int f0/1: 进入接口配置模式，以配置交换机端口 f0/1。
+
+Switch(config-if)#switchport access vlan 100: 将接口 f0/1 配置为访问模式，并指定它属于VLAN 100。
+
+Switch(config-if)#exit: 退出接口配置模式。
+
+Switch(config)#int f0/2: 进入接口配置模式，以配置交换机端口 f0/2。
+
+Switch(config-if)#switchport access vlan 100: 将接口 f0/2 配置为访问模式，并指定它也属于VLAN 100。
+
+Switch(config-if)#exit: 再次退出接口配置模式。
+
+Switch(config)#int range f0/11-f0/15: 进入一系列接口的范围配置模式，以配置多个连续的端口。
+
+Switch(config-if-range)#switchport access vlan 200: 将接口范围 f0/11 到 f0/15 配置为访问模式，并指定它们属于VLAN 200。
+
+Switch(config-if-range)#end: 退出接口范围配置模式。
+
+Switch#show vlan: 这是一个显示VLAN配置的命令。它会列出所有已配置的VLAN及其属性。
+
+
+
+VLAN Name               Status  Ports
+
+---- -------------------------------- --------- -------------------------------
+
+1  default             active  Fa0/3, Fa0/4, Fa0/5, Fa0/6
+
+​                        Fa0/7, Fa0/8, Fa0/9, Fa0/10
+
+​                        Fa0/16, Fa0/17, Fa0/18, Fa0/19
+
+​                        Fa0/20, Fa0/21, Fa0/22, Fa0/23
+
+​                        Fa0/24, Gig1/1, Gig1/2
+
+100 VLAN0100             active  Fa0/1, Fa0/2
+
+200 VLAN0200             active  Fa0/11, Fa0/12, Fa0/13, Fa0/14
+
+​                        Fa0/15
+
+1002 fddi-default           act/unsup 
+
+1003 token-ring-default        act/unsup 
+
+1004 fddinet-default         act/unsup 
+
+1005 trnet-default          act/unsup 
+
+ 
+</code></pre>
+<p><strong>测试实验结果</strong></p>
+<p>用PC0分别和其他的三台PC机进行测试，看一下网络是否联通，截屏记录实验结果并回答为什么会出现这种情况。</p>
+<p>下图代表不通：</p>
+<p><img src="/../images/clip_image003.png" alt="img"></p>
+<p>下图代表通了</p>
+<p><img src="/../images/clip_image004.png" alt="img"></p>
+<p>结合课堂讲授的VLAN原理，分析为什么会这样。</p>
+<p><strong>2、VTP配置</strong></p>
+<p><img src="/../images/clip_image006-1699343520337-1.jpg" alt="img"></p>
+<p>交换机1：</p>
+<pre><code class="shell">（switch0）：
+
+Switch&gt;
+
+Switch&gt;enable 
+
+Switch#conf t
+
+Switch(config)#interface f0/24: 进入接口配置模式，以配置交换机端口 f0/24。
+
+Switch(config-if)#switchport mode trunk: 将端口 f0/24 配置为中继模式。中继模式允许传送多个VLAN的数据帧。
+
+Switch(config-if)#exit: 退出接口配置模式。
+
+Switch(config)#vtp domain 123: 设置VTP域名为 "123"。这定义了一个VTP域，确保所有使用相同域名的VTP设备在同一个VTP域内。
+
+Switch(config)#vtp mode server: 将本交换机配置为VTP服务器模式。服务器模式允许你管理VLAN信息并将其同步到其他VTP设备。
+
+Switch(config)#vlan 100: 创建一个VLAN 100。
+
+Switch(config-vlan)#exit: 退出VLAN配置模式。
+
+Switch(config)#vlan 200: 创建另一个VLAN 200。
+
+Switch(config-vlan)#exit: 再次退出VLAN配置模式。
+
+Switch(config)#int f0/1: 进入接口配置模式，以配置交换机端口 f0/1。
+
+Switch(config-if)#switchport access vlan 100: 将端口 f0/1 配置为访问模式，并指定它属于VLAN 100。
+
+Switch(config-if)#exit: 退出接口配置模式。
+
+Switch(config)#int f0/11: 进入接口配置模式，以配置交换机端口 f0/11。
+
+Switch(config-if)#switchport access vlan 200: 将端口 f0/11 配置为访问模式，并指定它属于VLAN 200。
+
+Switch(config-if)#exit: 再次退出接口配置模式。
+
+Switch(config)#exit: 退出全局配置模式。
+
+Switch# show vlan: 这是一个显示VLAN配置的命令，它会列出已配置的VLAN及其属性。
+
+Switch#show vtp status: 这是一个显示VTP状态的命令。它将显示VTP域名、VTP模式以及VTP配置的版本等信息。在你的配置中，VTP域名被设置为 "123"，模式为服务器（Server）。
+</code></pre>
+<p>交换机2</p>
+<pre><code class="shell">(switch1):
+
+Switch&gt;
+
+Switch&gt;en 
+
+Switch#conf t
+
+Switch(config)#int f0/24: 进入接口配置模式，以配置交换机端口 f0/24。
+
+Switch(config-if)#switchport mode trunk: 将端口 f0/24 配置为中继模式。中继模式允许传送多个VLAN的数据帧。
+
+Switch(config-if)#exit: 退出接口配置模式。
+
+Switch(config)#vtp domain 123: 设置VTP域名为 "123"。这定义了一个VTP域，确保所有使用相同域名的VTP设备在同一个VTP域内。
+
+Switch(config)#vtp mode client: 将本交换机配置为VTP客户端模式。客户端模式表示该交换机将接收来自VTP服务器的VLAN配置信息，但不能修改或添加新的VLAN。
+
+Switch(config)#end: 退出配置模式。
+
+Switch#conf t: 进入全局配置模式，以便继续配置其他参数。
+
+Switch(config)#int f0/1: 进入接口配置模式，以配置交换机端口 f0/1。
+
+Switch(config-if)#switchport access vlan 100: 将端口 f0/1 配置为访问模式，并指定它属于VLAN 100。
+
+Switch(config-if)#exit: 退出接口配置模式。
+
+Switch(config)#int f0/11: 进入接口配置模式，以配置交换机端口 f0/11。
+
+Switch(config-if)#switchport access vlan 200: 将端口 f0/11 配置为访问模式，并指定它属于VLAN 200。
+
+Switch(config-if)#exit: 再次退出接口配置模式。
+
+Switch(config)#: 退出全局配置模式。
+
+Switch#
+
+ 
+</code></pre>
+<p><strong>测试实验结果</strong></p>
+<p>用PC0分别和其他的三台PC机进行测试，看一下网络是否联通，截屏记录实验结果并回答为什么会出现这种情况。</p>
+<h3 id="五、实验报告要求"><a href="#五、实验报告要求" class="headerlink" title="五、实验报告要求"></a>五、实验报告要求</h3><p>1．练习使用Cisco Packet Tracer 画出网络拓扑结构图，掌握虚拟局域网的配置方法（基本配置和VTP配置），截屏+文字记录相关步骤，测试VLAN配置后的通信效果。 </p>
+<p>提交word文档，文件名为：学号姓名实验六。先不交，下节课课上我会统一发送一个题目，请大家自行完成，完成后找我看结果，将此结果也写到实验六里，最后请将实验四五六一起打包发给学委。</p>
+<p><img src="/../images/image-20231107160538893.png" alt="image-20231107160538893"></p>
+<p><img src="/../images/image-20231107160526060.png" alt="image-20231107160526060"></p>
+<p>那么也就是说在同一个vlan中的设备才可以相互访问</p>
+<p><img src="/../images/image-20231107163057232.png" alt="image-20231107163057232"></p>
+<p>那么对于上述的网络同样是只有在相同的vlan中才可以ping通</p>
+<p><img src="/../images/image-20231107163133399.png" alt="image-20231107163133399"></p>
+<p><img src="/../images/image-20231107163138801.png" alt="image-20231107163138801"></p>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%99%9A%E6%8B%9F%E7%BD%91%E5%AE%9E%E9%AA%8C2/" title="计算机网络虚拟网实验2"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: 计算机网络虚拟网实验2</span></a><a class="button is-default" href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9C%B0%E5%9D%80%E5%AD%A6%E4%B9%A0/" title="交换机地址学习"><span class="has-text-weight-semibold">下一页: 交换机地址学习</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2023</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
