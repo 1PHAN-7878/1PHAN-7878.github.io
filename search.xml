@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>关于linux的fork进程中stdout中的缓冲问题</title>
+      <link href="/2023/11/16/%E5%85%B3%E4%BA%8Elinux%E7%9A%84fork%E8%BF%9B%E7%A8%8B%E4%B8%ADstdout%E4%B8%AD%E7%9A%84%E7%BC%93%E5%86%B2%E9%97%AE%E9%A2%98/"/>
+      <url>/2023/11/16/%E5%85%B3%E4%BA%8Elinux%E7%9A%84fork%E8%BF%9B%E7%A8%8B%E4%B8%ADstdout%E4%B8%AD%E7%9A%84%E7%BC%93%E5%86%B2%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题发现"><a href="#问题发现" class="headerlink" title="问题发现"></a>问题发现</h1><p>做了一个进程中pipe通信的Demo，结果发现在第二个子进程结束后，又将第一次的结果输出出来了，本来预期结果是第二次进程仅有第二次的进程才对，竟然包含第一次的结果？</p><p>代码如下：</p><p><img src="/../images/image-20231116102300214.png" alt="image-20231116102300214"></p><p><img src="/../images/image-20231116102314858.png" alt="image-20231116102314858"></p><p><img src="/../images/image-20231116102332708.png" alt="image-20231116102332708"></p><p>结果竟然在111之后，也就是父进程执行之后又再次出现p1的相关信息？</p><h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><p>我先去查找pipe的相关资料，pipe中的信息在读取一次之后就不能再读取了，看来不是pipe的作用，为此我直接删掉了pipe的相关代码。</p><p>如下所示：</p><p><img src="/../images/image-20231116102522179.png" alt="image-20231116102522179"></p><p><img src="/../images/image-20231116102546964.png" alt="image-20231116102546964"></p><p>结果竟然是两个111，为什么父进程第二次创建子进程会再次执行它上一行代码里面所包含的111？到这里更加觉得奇怪。</p><p>询问后有同事认为是孤儿进程的问题。</p><p>如果是 systemd，它的策略是接管孤儿进程，并将其变为独立进程路士磊 202118640111 2023/11/15 19:27:45<br>这个过程会重新分配pcb<br>重新分配pcb &lt;- pid 被充值<br>然后到底是输出多少111就取决于运气了（<br>孤儿进程独立后，pid 不为0 ，会执行15行的代码<br>和 A 的表现几乎一致了<br>如果第二种可能持续发生，可能会有一堆 111</p><p>由于我对孤儿进程了解较少，查询资料后仍然有困惑，为什么我尝试输出很多次都是111，甚至换了设备同样是111呢？</p><p>再次返回到对fork的搜索上。</p><p>发现了这样的解释：</p><p><img src="/../images/image-20231116102911536.png" alt="image-20231116102911536"></p><p>竟然是缓冲区的问题，之前没考虑到这一点，于是饶了弯路，但在我本地的环境\n并不会触发缓冲区的输出，还是要手动的fflush()才可以。</p><p>至此问题解决。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 操作系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机网络VTP配置</title>
       <link href="/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9CVTP%E9%85%8D%E7%BD%AE/"/>
       <url>/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9CVTP%E9%85%8D%E7%BD%AE/</url>
