@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Unity中的自动寻路Navigation使用</title>
+      <link href="/2023/11/16/Unity%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E5%AF%BB%E8%B7%AFNavigation%E4%BD%BF%E7%94%A8/"/>
+      <url>/2023/11/16/Unity%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E5%AF%BB%E8%B7%AFNavigation%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="包导入"><a href="#包导入" class="headerlink" title="包导入"></a>包导入</h1><p>窗口中选择包管理器，搜索AI，添加相应的包，接下来可以在窗口中选择AI面板，要选择那个过时的使用（泄。</p><h1 id="场景配置"><a href="#场景配置" class="headerlink" title="场景配置"></a>场景配置</h1><p>搭建如图所示的地形</p><p><img src="/../images/image-20231116142557278.png" alt="image-20231116142557278"></p><p>将不需要移动的设置为静态。</p><p><img src="/../images/image-20231116142747375.png" alt="image-20231116142747375"></p><p>点击navigation的面板，生成自动寻路网格。</p><p><img src="/../images/image-20231116143021803.png" alt="image-20231116143021803"></p><h1 id="组件配置"><a href="#组件配置" class="headerlink" title="组件配置"></a>组件配置</h1><p>选择要添加的物体，添加Nav Mesh Agent。再添加一个C#脚本。</p><pre><code class="c#">using System.Collections;using System.Collections.Generic;using UnityEngine;using UnityEngine.AI;public class AI : MonoBehaviour{    public GameObject gameObject;    private NavMeshAgent agent;    public Transform target; // 设置目标位置    // Start is called before the first frame update    void Start()    {        //gameObject = GameObject.Find("Tree");                agent = GetComponent&lt;NavMeshAgent&gt;();        SetDestination();    }    // Update is called once per frame    void Update()    {            }    void SetDestination()    {        if (target != null)        {            agent.SetDestination(target.position);        }    }}</code></pre><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p><img src="/../images/image-20231116144928854.png" alt="image-20231116144928854"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Unity </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于linux的fork进程中stdout中的缓冲问题</title>
       <link href="/2023/11/16/%E5%85%B3%E4%BA%8Elinux%E7%9A%84fork%E8%BF%9B%E7%A8%8B%E4%B8%ADstdout%E4%B8%AD%E7%9A%84%E7%BC%93%E5%86%B2%E9%97%AE%E9%A2%98/"/>
       <url>/2023/11/16/%E5%85%B3%E4%BA%8Elinux%E7%9A%84fork%E8%BF%9B%E7%A8%8B%E4%B8%ADstdout%E4%B8%AD%E7%9A%84%E7%BC%93%E5%86%B2%E9%97%AE%E9%A2%98/</url>
