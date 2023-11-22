@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>MATLAB关于不同窗口滤波的时间差异</title>
+      <link href="/2023/11/22/MATLAB%E5%85%B3%E4%BA%8E%E4%B8%8D%E5%90%8C%E7%AA%97%E5%8F%A3%E6%BB%A4%E6%B3%A2%E7%9A%84%E6%97%B6%E9%97%B4%E5%B7%AE%E5%BC%82/"/>
+      <url>/2023/11/22/MATLAB%E5%85%B3%E4%BA%8E%E4%B8%8D%E5%90%8C%E7%AA%97%E5%8F%A3%E6%BB%A4%E6%B3%A2%E7%9A%84%E6%97%B6%E9%97%B4%E5%B7%AE%E5%BC%82/</url>
+      
+        <content type="html"><![CDATA[<h1 id="任务要求"><a href="#任务要求" class="headerlink" title="任务要求"></a>任务要求</h1><p>今日寒潮降温，Q粿讲了讲规格化的图像处理，留到下节课做，这节课就做一做MATLAB中对于不同的滑动卷积窗口比如说三乘三，五乘五，还有更大的窗口，看看运算时间的差异。</p><p>于是是学习了imfilter滤波函数以及tictok的计时方法</p><h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><pre><code class="matlab">% 读取图像并调整大小和灰度img = imread('C:\Users\7878\Desktop\my_image.png');img1 = imresize(img, 0.4);img1 = rgb2gray(img1);% 创建子图subplot(3,2,1);set(gcf, 'Position', [0 0 1000 800])  % 设置窗口大小imshow(img1);set(gca, 'Position', [ 0 2/3 1/3 1/3]);  % 设置子图1位置和大小[r,c] = size(img1);% 定义不同的滤波器filter3 = ones(3,3)/(3*3);filter5 = ones(5,5)/(5*5);filter15 = ones(15,15)/(15*15);filter35 = ones(35,35)/(35*35);% 对图像进行不同尺寸的均值滤波，并计算时间ticresult1 = imfilter(img1, filter3, 'conv', 'replicate');  % 对图像进行3*3均值滤波time1 = toc;disp(' 3*3 时间' + time1);subplot(3,2,2);set(gca, 'Position', [ 1/2 2/3 1/3 1/3]);  % 设置子图2位置和大小imshow(result1);ticresult2 = imfilter(img1, filter5, 'conv', 'replicate');  % 对图像进行5*5均值滤波time2 = toc;disp(' 5*5 时间' + time2);subplot(3,2,3);imshow(result2);set(gca, 'Position', [ 0 1/3 1/3 1/3]);  % 设置子图3位置和大小ticresult3 = imfilter(img1, filter15, 'conv', 'replicate');  % 对图像进行15*15均值滤波time3 = toc;disp(' 15*15 时间' + time3);subplot(3,2,4);imshow(result3);set(gca, 'Position', [ 1/2 1/3 1/3 1/3]);  % 设置子图4位置和大小ticresult4 = imfilter(img1, filter35, 'conv', 'replicate');  % 对图像进行35*35均值滤波time4 = toc;disp(' 35*35 时间' + time4);subplot(3,2,5);imshow(result4);set(gca, 'Position', [ 0 0 1/3 1/3]);  % 设置子图5位置和大小</code></pre><h1 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h1><p><img src="/../images/image-20231122202258741.png" alt="image-20231122202258741"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MATLAB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机网络静态路由的配置实验</title>
       <link href="/2023/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/"/>
       <url>/2023/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/</url>
