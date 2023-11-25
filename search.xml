@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>2022ICPC济南部分题解</title>
+      <link href="/2023/11/25/2022ICPC%E6%B5%8E%E5%8D%97%E9%83%A8%E5%88%86%E9%A2%98%E8%A7%A3/"/>
+      <url>/2023/11/25/2022ICPC%E6%B5%8E%E5%8D%97%E9%83%A8%E5%88%86%E9%A2%98%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Tower"><a href="#Tower" class="headerlink" title="Tower"></a>Tower</h1><p><a href="https://www.luogu.com.cn/problem/list?keyword=icpc2022jinan&amp;type=AT%7CB%7CCF%7CP%7CSP%7CUVA&amp;page=1">https://www.luogu.com.cn/problem/list?keyword=icpc2022jinan&amp;type=AT%7CB%7CCF%7CP%7CSP%7CUVA&amp;page=1</a></p><pre><code class="c++">#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;cstdio&gt;#include &lt;algorithm&gt;#define endl "\n"#define int long longusing namespace std;const int N = 5005;int n,m;int a[N],ans[N],cha[N];int T;void solve(){    cin&gt;&gt;n&gt;&gt;m;    int geshu=0;    for(int i=1;i&lt;=n;i++){        cin&gt;&gt;a[i];        int x=a[i];        while(x){            ans[++geshu]=x;//记录最终答案可能的值            x/=2;        }    }    int minn=1e17;    for(int i=1;i&lt;=geshu;i++){//枚举所有最终答案        int x=ans[i];        int cnt=0;        for(int j=1;j&lt;=n;j++){            cha[j]=1e10;            if(a[j]&lt;x)cha[j]=x-a[j];//小于最终答案的值只能通过+1来操作            else if(a[j]==x){                cha[j]=0;                continue;            }            else {//大于最终答案的值先不断/2再加减                int num=a[j],shu=0;                while(num&gt;x){                    if(num&gt;x&amp;&amp;(num/2)&lt;=x){                        cha[j]=min(shu+num-x,shu+1+(x-num/2));                        break;                    }                    num/=2;shu++;                }            }        }        sort(cha+1,cha+1+n);        for(int j=1;j&lt;=n-m;j++)cnt+=cha[j];        minn=min(minn,cnt);    }    cout&lt;&lt;minn&lt;&lt;endl;    return;}signed main() {    cin &gt;&gt; T;    while(T--) {        solve();    }    return 0;}</code></pre><h1 id="Best-Carry-Player"><a href="#Best-Carry-Player" class="headerlink" title="Best Carry Player"></a>Best Carry Player</h1><p><a href="https://www.luogu.com.cn/problem/P9679">https://www.luogu.com.cn/problem/P9679</a></p><pre><code class="c++">#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;vector&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;cmath&gt;#include &lt;cstdlib&gt;#include &lt;queue&gt;#define LL long long#define endl "\n"#define debug(x) std:: cout &lt;&lt; "---DEBUG--- " &lt;&lt; x &lt;&lt; " -----DEBUG----\n"using namespace std;const int maxn = 3e5+5;string s;char sr[20]= {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};int T;int n;int sum[20], ans;int t;void solve(){    cin &gt;&gt; n;    ans = 0;    for(int i = 1; i &lt;= 15; i++) sum[i] = 0;    for(int i = 1; i &lt;= n; i++){        cin &gt;&gt; t;        for(int j = 1; t != 0; j++){            sum[j] += t % 10;            t/=10;        }    }    for(int j = 1; j &lt;= 15; j++){        ans += sum[j] / 10;        sum[j+1] += sum[j] / 10;    }    cout &lt;&lt; ans &lt;&lt; endl;}int main() {    cin &gt;&gt; T;    while(T--){        solve();    }    return 0;}</code></pre><h1 id="Identical-Parity"><a href="#Identical-Parity" class="headerlink" title="Identical Parity"></a>Identical Parity</h1><p><a href="https://www.luogu.com.cn/problem/P9671">https://www.luogu.com.cn/problem/P9671</a></p><pre><code class="c++">#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;vector&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;cmath&gt;#include &lt;cstdlib&gt;#include &lt;queue&gt;#define LL long long#define endl "\n"#define debug(x) std:: cout &lt;&lt; "---DEBUG--- " &lt;&lt; x &lt;&lt; " -----DEBUG----\n"using namespace std;const int maxn = 3e5+5;string s;char sr[20]= {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};int T;int n;int k;bool solve() {    cin &gt;&gt; n &gt;&gt; k;    if(k % 2 == 0) return true;    int num1 = (n + 1) / 2 - (k + 1) / 2 * (n / k);    int num2 = n / 2 - k / 2 * (n / k);    if (num1 &gt;= 0 and num1 &lt;= (k + 1) / 2 and num2 &gt;= 0 and num2 &lt;= k / 2) return true; //最后的一块可以分配好么    //if(num1 - num2 == 1 || num1 - num2 == 0) return true;    else return false;}int main() {    cin &gt;&gt; T;    while(T--) {        if(solve()){cout &lt;&lt; "yes" &lt;&lt; endl;}        else {cout &lt;&lt; "no" &lt;&lt; endl;}    }    return 0;}</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MATLAB关于不同窗口滤波的时间差异</title>
       <link href="/2023/11/22/MATLAB%E5%85%B3%E4%BA%8E%E4%B8%8D%E5%90%8C%E7%AA%97%E5%8F%A3%E6%BB%A4%E6%B3%A2%E7%9A%84%E6%97%B6%E9%97%B4%E5%B7%AE%E5%BC%82/"/>
       <url>/2023/11/22/MATLAB%E5%85%B3%E4%BA%8E%E4%B8%8D%E5%90%8C%E7%AA%97%E5%8F%A3%E6%BB%A4%E6%B3%A2%E7%9A%84%E6%97%B6%E9%97%B4%E5%B7%AE%E5%BC%82/</url>
