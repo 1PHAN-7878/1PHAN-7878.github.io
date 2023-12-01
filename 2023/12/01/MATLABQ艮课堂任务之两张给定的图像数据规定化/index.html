@@ -1,0 +1,72 @@
+<!DOCTYPE html><html class="appearance-dark" lang="zh-CN"><head><meta charset="UTF-8"><title>MATLABQ艮课堂任务之两张给定的图像数据规定化</title><meta name="description" content="welcome！"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="任务描述天气很冷，Q艮又是作为最后一节课，没想到是布置了上课的作业（其实是课上交给他的话会有一扣扣的加分啊）。任务呢，是给定了图像像素的分布，为了简化，只有八像素的灰度。将原本图像，按照给定的分布，重新排布，称之为规定化。
+
+代码如下：
+% 给定数组 A、B 和 C
+A = [790, 1023, 850, 656, 329, 245, 122, 81];
+B = [0, 1, 2, 3, 4, 5, 6, 7];
+C = [0, 0, 0, 15, 20, 30, 20, 15];
+
+% 初始化结果数组
+result = zeros(1, 8);
+resultadd = zeros(1, 8);
+
+% 计算数组 A 和 C 的累积和
+A_sum = cumsum(A);
+A_p = A / max(A_s.."><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">MATLABQ艮课堂任务之两张给定的图像数据规定化</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%8F%8F%E8%BF%B0"><span class="toc-text">任务描述</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/MATLAB"><i class="tag post-item-tag">MATLAB</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">MATLABQ艮课堂任务之两张给定的图像数据规定化</h1><time class="has-text-grey" datetime="2023-12-01T02:19:53.000Z">2023-12-01</time><article class="mt-2 post-content"><h1 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a>任务描述</h1><p>天气很冷，Q艮又是作为最后一节课，没想到是布置了上课的作业（其实是课上交给他的话会有一扣扣的加分啊）。任务呢，是给定了图像像素的分布，为了简化，只有八像素的灰度。将原本图像，按照给定的分布，重新排布，称之为规定化。</p>
+<p><img src="/../images/image-20231201102436343.png" alt="image-20231201102436343"><img src="/../images/image-20231201102442272.png" alt="image-20231201102442272"><img src="/../images/image-20231201102452193.png" alt="image-20231201102452193"><img src="/../images/image-20231201102459198.png" alt="image-20231201102459198"><img src="/../images/image-20231201102516264.png" alt="image-20231201102516264"></p>
+<p>代码如下：</p>
+<pre><code class="matlab">% 给定数组 A、B 和 C
+A = [790, 1023, 850, 656, 329, 245, 122, 81];
+B = [0, 1, 2, 3, 4, 5, 6, 7];
+C = [0, 0, 0, 15, 20, 30, 20, 15];
+
+% 初始化结果数组
+result = zeros(1, 8);
+resultadd = zeros(1, 8);
+
+% 计算数组 A 和 C 的累积和
+A_sum = cumsum(A);
+A_p = A / max(A_sum); % 对 A 进行归一化
+
+C_sum = cumsum(C);
+
+% 对 A_sum 和 C_sum 进行归一化
+A_normalized = A_sum / max(A_sum);
+C_normalized = C_sum / max(C_sum);
+
+% 显示归一化后的数组
+disp('A 经过归一化');
+disp(A_normalized);
+disp('C 经过归一化');
+disp(C_normalized);
+
+% 循环遍历归一化后的 A，并在归一化后的 C 中找到最接近的值
+for i = 1:length(A_normalized)
+    targetNumber = A_normalized(i);
+    [closestValue, index] = min(abs(C_normalized - targetNumber));
+    result(i) = index;
+end
+
+% 显示归一化后 A 与 C 之间的相似性结果
+disp('归一化后的相似性结果');
+disp(result);
+
+% 计算并显示添加近似值后的概率结果
+for i = 1:length(result)
+    resultadd(result(i)) = A_p(i) + resultadd(result(i));
+end
+
+% 显示最终的概率结果
+disp('添加所有近似值后的概率和');
+disp(resultadd);
+
+% 绘制归一化分布的条形图
+bar(resultadd);
+title('数值分布的归一化');
+xlabel('像素值');
+ylabel('概率');
+</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2023/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E5%99%A8RIP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E9%AA%8C/" title="路由器RIP协议实验"><span class="has-text-weight-semibold">下一页: 路由器RIP协议实验</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2023</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>

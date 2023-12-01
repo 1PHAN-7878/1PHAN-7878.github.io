@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>MATLABQ艮课堂任务之两张给定的图像数据规定化</title>
+      <link href="/2023/12/01/MATLABQ%E8%89%AE%E8%AF%BE%E5%A0%82%E4%BB%BB%E5%8A%A1%E4%B9%8B%E4%B8%A4%E5%BC%A0%E7%BB%99%E5%AE%9A%E7%9A%84%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E8%A7%84%E5%AE%9A%E5%8C%96/"/>
+      <url>/2023/12/01/MATLABQ%E8%89%AE%E8%AF%BE%E5%A0%82%E4%BB%BB%E5%8A%A1%E4%B9%8B%E4%B8%A4%E5%BC%A0%E7%BB%99%E5%AE%9A%E7%9A%84%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E8%A7%84%E5%AE%9A%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<h1 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a>任务描述</h1><p>天气很冷，Q艮又是作为最后一节课，没想到是布置了上课的作业（其实是课上交给他的话会有一扣扣的加分啊）。任务呢，是给定了图像像素的分布，为了简化，只有八像素的灰度。将原本图像，按照给定的分布，重新排布，称之为规定化。</p><p><img src="/../images/image-20231201102436343.png" alt="image-20231201102436343"><img src="/../images/image-20231201102442272.png" alt="image-20231201102442272"><img src="/../images/image-20231201102452193.png" alt="image-20231201102452193"><img src="/../images/image-20231201102459198.png" alt="image-20231201102459198"><img src="/../images/image-20231201102516264.png" alt="image-20231201102516264"></p><p>代码如下：</p><pre><code class="matlab">% 给定数组 A、B 和 CA = [790, 1023, 850, 656, 329, 245, 122, 81];B = [0, 1, 2, 3, 4, 5, 6, 7];C = [0, 0, 0, 15, 20, 30, 20, 15];% 初始化结果数组result = zeros(1, 8);resultadd = zeros(1, 8);% 计算数组 A 和 C 的累积和A_sum = cumsum(A);A_p = A / max(A_sum); % 对 A 进行归一化C_sum = cumsum(C);% 对 A_sum 和 C_sum 进行归一化A_normalized = A_sum / max(A_sum);C_normalized = C_sum / max(C_sum);% 显示归一化后的数组disp('A 经过归一化');disp(A_normalized);disp('C 经过归一化');disp(C_normalized);% 循环遍历归一化后的 A，并在归一化后的 C 中找到最接近的值for i = 1:length(A_normalized)    targetNumber = A_normalized(i);    [closestValue, index] = min(abs(C_normalized - targetNumber));    result(i) = index;end% 显示归一化后 A 与 C 之间的相似性结果disp('归一化后的相似性结果');disp(result);% 计算并显示添加近似值后的概率结果for i = 1:length(result)    resultadd(result(i)) = A_p(i) + resultadd(result(i));end% 显示最终的概率结果disp('添加所有近似值后的概率和');disp(resultadd);% 绘制归一化分布的条形图bar(resultadd);title('数值分布的归一化');xlabel('像素值');ylabel('概率');</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MATLAB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>路由器RIP协议实验</title>
       <link href="/2023/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E5%99%A8RIP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E9%AA%8C/"/>
       <url>/2023/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E5%99%A8RIP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E9%AA%8C/</url>
