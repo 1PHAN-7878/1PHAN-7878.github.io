@@ -1,0 +1,95 @@
+<!DOCTYPE html><html class="appearance-dark" lang="zh-CN"><head><meta charset="UTF-8"><title>计算机网络数据封装</title><meta name="description" content="welcome！"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="实验十、数据封装实验
+一、实验目的1.回顾静态路由的配置方法，根据网络拓扑实现两台PC互通。
+2.了解CISCO模拟器的simulation mode（模拟模式），观察网络数据包的来龙去脉。
+3.掌握以太网帧的构成，了解各个字段的含义；
+4．能够识别不同的MAC地址并理解MAC地址的作用；
+5.掌握IP数据包的组成和网络层的基本功能；
+6．理解ICMP协议与IP协议的封装关系。
+二、实验内容1．安装CISCO模拟器；
+2．画出网络拓扑图；
+3．进行静态路由的配置；
+4．测试网络的通信效果；
+5.通过PING命令捕捉ICMP报文，观察ICMP协议与IP协议的封装关系。
+三、实验原理1．以太网帧结构。以太网中传输的数据包通常被称为“帧”，以太网的“帧”结构如下：
+
+各字段的含义：
+目的地址：6个字节的目的物理地.."><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">计算机网络数据封装</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="toc-text">一、实验目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="toc-text">二、实验内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="toc-text">三、实验原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">四、实验步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81-%E6%80%9D%E8%80%83%E9%97%AE%E9%A2%98"><span class="toc-text">五、 思考问题</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><i class="tag post-item-tag">计算机网络</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">计算机网络数据封装</h1><time class="has-text-grey" datetime="2023-12-05T11:36:25.000Z">2023-12-05</time><article class="mt-2 post-content"><p>实验十、数据封装实验</p>
+<h1 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h1><p>1.回顾静态路由的配置方法，根据网络拓扑实现两台PC互通。</p>
+<p>2.了解CISCO模拟器的simulation mode（模拟模式），观察网络数据包的来龙去脉。</p>
+<p>3.掌握以太网帧的构成，了解各个字段的含义；</p>
+<p>4．能够识别不同的MAC地址并理解MAC地址的作用；</p>
+<p>5.掌握IP数据包的组成和网络层的基本功能；</p>
+<p>6．理解ICMP协议与IP协议的封装关系。</p>
+<h1 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h1><p>1．安装CISCO模拟器；</p>
+<p>2．画出网络拓扑图；</p>
+<p>3．进行静态路由的配置；</p>
+<p>4．测试网络的通信效果；</p>
+<p>5.通过PING命令捕捉ICMP报文，观察ICMP协议与IP协议的封装关系。</p>
+<h1 id="三、实验原理"><a href="#三、实验原理" class="headerlink" title="三、实验原理"></a>三、实验原理</h1><p>1．以太网帧结构。以太网中传输的数据包通常被称为“帧”，以太网的“帧”结构如下：</p>
+<p><img src="/../images/image-20231205194155695.png" alt="image-20231205194155695"></p>
+<p>各字段的含义：</p>
+<p>目的地址：6个字节的目的物理地址标识帧的接收结点；</p>
+<p>源地址：6个字节的源物理地址标识帧的发送结点；</p>
+<p>帧类型/长度（TYPE/LEN）：该字段的值大于或等于0x0600时，表示上层数据使用的协议类型。例如0x0806表示ARP请求或应答，0x0800表示IP协议。该字段的值小于0x0600时表示以太网用户数据的长度字段，上层携带LLC-PDU；</p>
+<p>数据字段：这是一个可变长度字段，用于携带上层传下来的数据；</p>
+<p>帧校验FCS：以太网采用32位CRC冗余校验。校验范围是目的地址、源地址、长度/类型、数据字段。</p>
+<p>2．IP数据报格式</p>
+<p><img src="/../images/image-20231205194224831.png" alt="image-20231205194224831"></p>
+<p>3.ICMP回显请求和应答报文格式</p>
+<p>网络测试程序 Ping就是利用ICMP的回显请求报文完成的，回显请求报文的类型是8，代码是0。ICMP回显请求报文格式如下：</p>
+<p> <img src="/../images/image-20231205194233314.png" alt="image-20231205194233314"></p>
+<h1 id="四、实验步骤"><a href="#四、实验步骤" class="headerlink" title="四、实验步骤"></a>四、实验步骤</h1><p>1、画出拓扑图并配置各IP如下：</p>
+<p> <img src="/../images/image-20231205194241903.png" alt="image-20231205194241903"></p>
+<p>2、仿照实验八，自行配置路由表，使得两台PC可以互相ping通。</p>
+<p>3、观察数据包进出每个设备时的变化，截屏记录，并回答思考题。</p>
+<p>注意：</p>
+<ol>
+<li><p>别忘打开路由器端口，特别是在图形界面上操作时</p>
+</li>
+<li><p>在路由器上可以ping通，PC还是ping不同，why？没有设置网关。</p>
+</li>
+</ol>
+<p>3.将模拟器调到模拟模式，在PC0的桌面上运行ping命令，ping PC1，点击Auto capture，观察ICMP协议过程。要了解协议的详细信息，可单击显示不同颜色的协议类型信息Info。从而看到OSI模型信息和各层PDU信息。</p>
+<h1 id="五、-思考问题"><a href="#五、-思考问题" class="headerlink" title="五、 思考问题"></a>五、 思考问题</h1><p>结合实验过程中的实验结果，回答下列问题：</p>
+<p>1．IP数据包在从源主机出发到达目的主机的过程中，IP首部中的IP源地址和目的地址字段是否发生变化？</p>
+<p>IP首部的IP地址并没有发生变化。</p>
+<p>2.以太网数据帧中的MAC地址是否发生了变化？</p>
+<p>MAC地址发生了变化</p>
+<p>3.协议之间是怎样进行数据封装的？请结合TCP/IP模型或OSI模型说明本次实验中数据传输的过程。</p>
+<ol>
+<li><strong>应用层（Application Layer）</strong>：<ul>
+<li>发送端：应用层负责生成应用层数据，并将其传递给传输层。例如，在HTTP中，这可能是一个HTTP请求。</li>
+<li>接收端：应用层接收传输层的数据，然后将其传递给上层应用。</li>
+</ul>
+</li>
+<li><strong>传输层（Transport Layer）</strong>：<ul>
+<li>发送端：传输层负责将上层数据分割为适当的大小，管理数据的流动，并添加传输层的首部信息。在TCP中，这包括源端口、目标端口、序列号等。</li>
+<li>接收端：传输层接收底层数据，去除传输层的首部，然后将其传递给上层。</li>
+</ul>
+</li>
+<li><strong>网络层（Network Layer）</strong>：<ul>
+<li>发送端：网络层添加网络层的首部，包括源IP地址和目标IP地址等。这个包含了数据从一个节点到另一个节点的路径信息。</li>
+<li>接收端：网络层接收数据，去除网络层的首部，然后将其传递给传输层。</li>
+</ul>
+</li>
+<li><strong>数据链路层（Data Link Layer）</strong>：<ul>
+<li>发送端：数据链路层添加数据链路层的首部，通常包括物理地址（MAC地址）等信息。</li>
+<li>接收端：数据链路层接收数据，去除数据链路层的首部，然后将其传递给网络层。</li>
+</ul>
+</li>
+<li><strong>物理层（Physical Layer）</strong>：<ul>
+<li>发送端：物理层将数据转化为比特流，通过物理媒体传输。</li>
+<li>接收端：物理层接收比特流，然后将其传递给数据链路层。</li>
+</ul>
+</li>
+</ol>
+<p><img src="/../images/image-20231205194429709.png" alt="image-20231205194429709"></p>
+<p><img src="/../images/image-20231205194436611.png" alt="image-20231205194436611"></p>
+<p><img src="/../images/image-20231205194442373.png" alt="image-20231205194442373"></p>
+<p><img src="/../images/image-20231205194447888.png" alt="image-20231205194447888"></p>
+<p><img src="/../images/image-20231205194452895.png" alt="image-20231205194452895"></p>
+<p><img src="/../images/image-20231205194457344.png" alt="image-20231205194457344"></p>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2023/12/04/Unity%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%91%84%E5%83%8F%E5%A4%B4%E8%B7%9F%E9%9A%8F%E7%89%A9%E4%BD%93%E6%97%8B%E8%BD%AC%E7%A7%BB%E5%8A%A8/" title="Unity中实现摄像头跟随物体旋转移动"><span class="has-text-weight-semibold">下一页: Unity中实现摄像头跟随物体旋转移动</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2023</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
