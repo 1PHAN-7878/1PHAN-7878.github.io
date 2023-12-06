@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>MATLAB关于图像修复的学习实践</title>
+      <link href="/2023/12/06/MATLAB%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/"/>
+      <url>/2023/12/06/MATLAB%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%83%8F%E4%BF%AE%E5%A4%8D%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/</url>
+      
+        <content type="html"><![CDATA[<h1 id="任务需求"><a href="#任务需求" class="headerlink" title="任务需求"></a>任务需求</h1><p>天气怎么又有点暖和了，今天学了图像修复，以及图像的恢复。这两个貌似很相似，不过一个是对于噪声的，一个是直接把图片的一部分给扣走。晚上的任务是，能否自己实现一个图像补全，图像修复？</p><h1 id="查询资料"><a href="#查询资料" class="headerlink" title="查询资料"></a>查询资料</h1><p>图像补全，即是将图片中缺失的像素补充上, 目的是使得没有看过这原图像的观察者无法察觉出这其实是补全的图像。 有时为了移除图像中的一些物体, 会手动地将这些物体遮挡起来进行补全。 一般来说, 按照补全的难易程度可以将该问题分成两类: (1) 补全较小的区域 —— 细缝, 文字等; (2)补全较大的区域 —— 整块的缺失图片。</p><p><img src="/../images/image-20231206200659347.png" alt="image-20231206200659347"></p><p><img src="/../images/image-20231206200706653.png" alt="image-20231206200706653">不过的话，这样看起来简单，其实是不太好做，这上面两张图是中科院研究所做的。我的话，想的是看看MATLAB中是否有类似的函数等可以使用。</p><p>方法大致如下：</p><p><img src="/../images/image-20231206201027274.png" alt="image-20231206201027274"></p><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><pre><code class="matlab">img = imread('C:\Users\7878\Desktop\my_image.png');img1 = imresize(img, 0.3);img1 = rgb2gray(img1);% 定义缺失块的位置和大小missingBlockPosition = [400, 250];missingBlockSize = [50, 50];% 制作掩码，将缺失块区域置零mask = ones(size(img1));mask(missingBlockPosition(1):missingBlockPosition(1)+missingBlockSize(1)-1, ...     missingBlockPosition(2):missingBlockPosition(2)+missingBlockSize(2)-1) = 0; img1 = img1 .* uint8(mask);inversemask = ~mask;% reconstructedImage = inpaint_nans(img1, mask);% reconstructedImage = fillmissing(img1, 'linear');reconstructedImage = regionfill(img1, inversemask);% 显示结果figure;subplot(1, 2, 1), imshow(img1), title('Original Image');subplot(1, 2, 2), imshow(reconstructedImage), title('Reconstructed Image'); </code></pre><p>效果：</p><p><img src="/../images/image-20231206200844084.png" alt="image-20231206200844084"></p><p>对于这种与周围区别不大的图像，确实能够有一定的效果，也是补全了黑色的区域。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MATLAB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机网络数据封装</title>
       <link href="/2023/12/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/"/>
       <url>/2023/12/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85/</url>
