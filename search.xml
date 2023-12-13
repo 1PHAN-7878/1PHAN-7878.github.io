@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>MATLAB关于图像傅里叶变换以及滤波的初探</title>
+      <link href="/2023/12/13/MATLAB%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%BB%A5%E5%8F%8A%E6%BB%A4%E6%B3%A2%E7%9A%84%E5%88%9D%E6%8E%A2/"/>
+      <url>/2023/12/13/MATLAB%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%BB%A5%E5%8F%8A%E6%BB%A4%E6%B3%A2%E7%9A%84%E5%88%9D%E6%8E%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="任务要求"><a href="#任务要求" class="headerlink" title="任务要求"></a>任务要求</h1><p>今天雪下的巨大，学的傅里叶变换（单独的还是明白了，但是怎么让他们跟图像放在一起）形成了低频和高频（我理解低频和高频是像素值变化的剧烈程度），对图像做了傅里叶变换，把低频的拿到了中间，应该叫移动，再用掩膜给他盖起来。比如我盖住了高频的，那么只有低频的进行复原，也就是说是个低通滤波器，反之就是个高通滤波器。</p><p>如此说来，高通滤波器下，变化剧烈的像素被保留，就能够获得轮廓。</p><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre><code class="matlab">img = imread('C:\Users\7878\Desktop\my_image.png');img1 = imresize(img, 0.3);img1 = rgb2gray(img1);img1 = im2double(img1);subplot(2, 3, 1);imshow(img1);fftimg1 = fft2(img1);sfftimg1 = fftshift(fftimg1);RR = real(sfftimg1);II = imag(sfftimg1);A=sqrt(RR.^2+II.^2);%计算频谱幅值A=(A-min(min(A)))/(max(max(A))-min(min(A)))*225; %归一化subplot(2,3,2);imshow(A);% 计算填充图像大小[M,N] = size(img1);M2 = 2*M;N2 = 2*N;% 傅里叶变换F = fftshift(fft2(img1,M2,N2));subplot(2,3,3);imshow(mat2gray(log(1+abs(F))));title('傅里叶频谱');% 设计滤波器D0=40;      h=zeros(M2,N2); for i=1:M2     for j=1:N2        if((abs(M2/2-i)&lt;D0)&amp;&amp;(abs(N2/2-j)&lt;D0))            h(i,j)=0;        else           h(i,j)=1;        end     end end    H = mat2gray(h);% 理想滤波器subplot(2,3,4);imshow(H);title('理想高通滤波器');G = F.*H;subplot(2,3,5);imshow(mat2gray(log(1+abs(G))));title('频域滤波');g0 = ifft2(fftshift(G));g = g0(1:M,1:N);g = real(g);subplot(2,3,6);imshow(g);title('滤波后的图像');% % % 创建高通滤波器% high_pass_filter = ones(size(A));% radius = 30; % 调整这个半径以控制高频通道的大小% % % 在频谱中心创建一个圆形掩模，将半径外的部分设为0% [rows, cols] = size(A);% center = [rows/2, cols/2];% [x, y] = meshgrid(1:cols, 1:rows);% mask = (x - center(1)).^2 + (y - center(2)).^2 &gt; radius * radius;% % mask = (abs(x - center(1)) &gt; radius) | (abs(y - center(2)) &gt; radius);% % mask1(200:250, 200:300) = 0;% mask = ~mask;% high_pass_filter(mask) = 0;% % % 应用高通滤波器% filtered_A = A .* high_pass_filter;% % subplot(2,3,3);% imshow(filtered_A, []);% % % 反傅里叶变换% filtered_img = ifft2(ifftshift(filtered_A));% % % 取实部% filtered_img = real(filtered_img);% % subplot(2,3,4);% imshow(uint8(filtered_img),[]);</code></pre><h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/../images/image-20231213201827054.png" alt="image-20231213201827054"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MATLAB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>学习记录之DOM</title>
       <link href="/2023/12/10/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8BDOM/"/>
       <url>/2023/12/10/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8BDOM/</url>
