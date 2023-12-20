@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>学习记录之Servlet</title>
+      <link href="/2023/12/20/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8BServlet/"/>
+      <url>/2023/12/20/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8BServlet/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h1><h1 id="2-第一个尝试"><a href="#2-第一个尝试" class="headerlink" title="2 第一个尝试"></a>2 第一个尝试</h1><p>在webapp的包里创建一个html，设置好post请求以便于触发servlet。</p><pre><code class="html">&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;    &lt;meta charset="UTF-8"&gt;    &lt;title&gt;Title&lt;/title&gt;&lt;/head&gt;&lt;body&gt;    &lt;form action="myweb" method="post"&gt;        &lt;div&gt;            &lt;span&gt;姓名:&lt;/span&gt;            &lt;input name="name"&gt;        &lt;/div&gt;        &lt;div&gt;            &lt;span&gt;密码:&lt;/span&gt;            &lt;input name="password"&gt;        &lt;/div&gt;        &lt;button type="submit"&gt;提交&lt;/button&gt;    &lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</code></pre><p>在src/main/java/com/example/demo1这个目录下创建myweb.java实现doPost请求</p><pre><code class="java">package com.example.demo1;import com.sun.nio.sctp.AbstractNotificationHandler;import jakarta.servlet.ServletException;import jakarta.servlet.http.HttpServlet;import jakarta.servlet.http.HttpServletRequest;import jakarta.servlet.http.HttpServletResponse;import java.io.IOException;public class myweb extends HttpServlet {    @Override    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {        //super.doPost(req, resp);        String name = req.getParameter("name");        String password = req.getParameter("password");        System.out.println(name);        System.out.println(password);    }}</code></pre><p>在webapp下的WEB-INF中的web.xml配置好关联信息</p><pre><code class="xml">        &lt;servlet&gt;            &lt;servlet-name&gt;myweb&lt;/servlet-name&gt;            &lt;servlet-class&gt;com.example.demo1.myweb&lt;/servlet-class&gt;        &lt;/servlet&gt;        &lt;servlet-mapping&gt;            &lt;servlet-name&gt;myweb&lt;/servlet-name&gt;            &lt;url-pattern&gt;/myweb&lt;/url-pattern&gt;        &lt;/servlet-mapping&gt;        &lt;welcome-file-list&gt;            &lt;welcome-file&gt;myweb.html&lt;/welcome-file&gt;        &lt;/welcome-file-list&gt;</code></pre><p>==servlet-class在这里是全限定名==</p><p>启动tomcat之后可以观察到运行效果。</p><p><img src="/../images/image-20231220200342786.png" alt="image-20231220200342786"></p><p>证明我的post请求已经获取到了，开始进一步的学习。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git中出现访问403的问题</title>
       <link href="/2023/12/20/git%E4%B8%AD%E5%87%BA%E7%8E%B0%E8%AE%BF%E9%97%AE403%E7%9A%84%E9%97%AE%E9%A2%98/"/>
       <url>/2023/12/20/git%E4%B8%AD%E5%87%BA%E7%8E%B0%E8%AE%BF%E9%97%AE403%E7%9A%84%E9%97%AE%E9%A2%98/</url>
