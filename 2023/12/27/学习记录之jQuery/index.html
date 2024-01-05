@@ -1,0 +1,732 @@
+<!DOCTYPE html><html class="appearance-dark" lang="zh-CN"><head><meta charset="UTF-8"><title>1PHAN's blog</title><meta name="description" content="welcome！"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="JQueryjQuery 是一个快速、小巧且功能丰富的 JavaScript 库。它简化了在网页中进行常见任务的复杂性，提供了跨浏览器的解决方案，使得开发者能够更容易地处理 DOM 操作、事件处理、动画效果、Ajax 请求等。
+以下是一些 jQuery 的主要特点和用途：
+
+跨浏览器兼容性： jQuery 解决了在不同浏览器之间处理 DOM 操作和事件的差异，为开发者提供了一致的接口。
+简化 DOM 操作： 使用 jQuery，你可以使用简洁而强大的选择器语法来轻松选择、操作和遍历 DOM 元素。
+事件处理： jQuery 提供了简单的事件处理机制，使得添加、移除和触发事件变得容易，同时解决了跨浏览器的事件兼容性问题。
+Ajax 请求： jQuery 简化了进行 Ajax 请求的过程，通过 $.ajax().."><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center"></p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JQuery"><span class="toc-text">JQuery</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-text">基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#val"><span class="toc-text">.val()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html-text"><span class="toc-text">.html() .text()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#css%E8%B0%83%E6%95%B4"><span class="toc-text">css调整</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-text">练习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C"><span class="toc-text">属性操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prop"><span class="toc-text">prop</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB"><span class="toc-text">动画</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0-1"><span class="toc-text">练习</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-text">事件</span></a></li></ol></div><div class="column is-9"><header class="my-4"></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle"></h1><time class="has-text-grey" datetime="2023-12-27T10:40:16.625Z">2023-12-27</time><article class="mt-2 post-content"><h1 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h1><p>jQuery 是一个快速、小巧且功能丰富的 JavaScript 库。它简化了在网页中进行常见任务的复杂性，提供了跨浏览器的解决方案，使得开发者能够更容易地处理 DOM 操作、事件处理、动画效果、Ajax 请求等。</p>
+<p>以下是一些 jQuery 的主要特点和用途：</p>
+<ol>
+<li><strong>跨浏览器兼容性：</strong> jQuery 解决了在不同浏览器之间处理 DOM 操作和事件的差异，为开发者提供了一致的接口。</li>
+<li><strong>简化 DOM 操作：</strong> 使用 jQuery，你可以使用简洁而强大的选择器语法来轻松选择、操作和遍历 DOM 元素。</li>
+<li><strong>事件处理：</strong> jQuery 提供了简单的事件处理机制，使得添加、移除和触发事件变得容易，同时解决了跨浏览器的事件兼容性问题。</li>
+<li><strong>Ajax 请求：</strong> jQuery 简化了进行 Ajax 请求的过程，通过 <code>$.ajax()</code> 方法，你可以轻松地进行数据交换而无需刷新整个页面。</li>
+<li><strong>动画和效果：</strong> 提供了丰富的动画和效果功能，例如淡入淡出、滑动、展开折叠等，使页面更生动有趣。</li>
+<li><strong>链式操作：</strong> jQuery 允许你在一行代码中执行多个操作，通过链式调用方法，可以使代码更简洁。</li>
+<li><strong>插件生态系统：</strong> 有大量的 jQuery 插件可用，可以轻松扩展 jQuery 的功能，满足不同项目的需求。</li>
+<li><strong>轻量级：</strong> 尽管功能强大，但 jQuery 本身的文件相对较小，加载速度较快。</li>
+</ol>
+<p>由于这些优点，jQuery 在过去的Web开发中非常流行，但随着现代浏览器对原生 JavaScript 和其他库的支持增强，一些新的框架和库也逐渐崭露头角。然而，仍然有很多项目和网站在使用 jQuery，并且它仍然是一个有用的工具，特别是在需要兼容旧版本浏览器的情况下。</p>
+<h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><pre><code class="javascript">$(function(){
+    /* code */ 
+});
+</code></pre>
+<p> 是 jQuery 中用于在文档准备就绪时执行代码的一种缩写形式。这是一种常见的用法，用于确保你的代码在文档加载完成后再执行，以避免在DOM元素尚未完全加载时进行操作。</p>
+<p><strong>选择器（Selectors）：</strong></p>
+<ul>
+<li>通过元素名称选择：<code>$("p")</code> 选择所有 <code>&lt;p&gt;</code> 元素。</li>
+<li>通过类名选择：<code>$(".myClass")</code> 选择所有具有类名 “myClass” 的元素。</li>
+<li>通过ID选择：<code>$("#myId")</code> 选择具有ID “myId” 的元素。</li>
+<li>多重选择器：<code>$("p, .myClass, #myId")</code> 可以选择多个元素。</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="container" style="display: inline;"&gt;
+        &lt;span&gt;这是文字&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;button id="show"&gt;show&lt;/button&gt;
+    &lt;button id="hide"&gt;hide&lt;/button&gt;
+    &lt;script&gt;
+        //通过jQuery来控制其中的信息显示与否
+        $(function(){
+            $("#show").click(function(){
+                $("#container").show();
+                alert("this is show!");
+            });
+            $("#hide").click(function(){
+                $("#container").hide();
+            });
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="val"><a href="#val" class="headerlink" title=".val()"></a>.val()</h2><p>在 jQuery 中，<code>.val()</code> 方法主要用于获取或设置表单元素的值。它可以应用于一系列不同类型的表单元素，包括：</p>
+<ol>
+<li><p><strong>文本框（Text Input）：</strong></p>
+<pre><code class="javascript">var textValue = $("input[type='text']").val();
+</code></pre>
+</li>
+<li><p><strong>密码框（Password Input）：</strong></p>
+<pre><code class="javascript">var passwordValue = $("input[type='password']").val();
+</code></pre>
+</li>
+<li><p><strong>文本区域（Textarea）：</strong></p>
+<pre><code class="javascript">var textareaValue = $("textarea").val();
+</code></pre>
+</li>
+<li><p><strong>单选按钮（Radio Button）：</strong></p>
+<pre><code class="javascript">var radioValue = $("input[type='radio']:checked").val();
+</code></pre>
+</li>
+<li><p><strong>复选框（Checkbox）：</strong></p>
+<pre><code class="javascript">var checkboxValue = $("input[type='checkbox']").val(); // 只获取第一个复选框的值
+</code></pre>
+<p>如果有多个复选框，应该使用 <code>.each()</code> 遍历它们：</p>
+<pre><code class="javascript">var checkboxValues = [];
+$("input[type='checkbox']:checked").each(function() {
+    checkboxValues.push($(this).val());
+});
+</code></pre>
+</li>
+<li><p><strong>下拉框（Select）：</strong></p>
+<pre><code class="javascript">var selectValue = $("select").val(); // 只获取选中项的值
+</code></pre>
+<p>如果需要获取所有选项的值，应该使用 <code>.each()</code> 遍历它们：</p>
+<pre><code class="javascript">var selectValues = [];
+$("select option:selected").each(function() {
+    selectValues.push($(this).val());
+});
+</code></pre>
+</li>
+</ol>
+<h2 id="html-text"><a href="#html-text" class="headerlink" title=".html() .text()"></a>.html() .text()</h2><ol>
+<li><p><strong><code>.html()</code> 方法：</strong></p>
+<ul>
+<li><strong>获取内容：</strong> 用于获取元素的 HTML 内容，包括 HTML 标签。</li>
+</ul>
+<pre><code class="javascript">var htmlContent = $("div").html();
+</code></pre>
+<ul>
+<li><strong>设置内容：</strong> 用于设置元素的 HTML 内容。</li>
+</ul>
+<pre><code class="javascript">$("div").html("&lt;p&gt;New HTML content&lt;/p&gt;");
+</code></pre>
+</li>
+<li><p><strong><code>.text()</code> 方法：</strong></p>
+<ul>
+<li><strong>获取内容：</strong> 用于获取元素的纯文本内容，不包含 HTML 标签。</li>
+</ul>
+<pre><code class="javascript">var textContent = $("div").text();
+</code></pre>
+<ul>
+<li><strong>设置内容：</strong> 用于设置元素的纯文本内容。</li>
+</ul>
+<pre><code class="javascript">$("div").text("New text content");
+</code></pre>
+</li>
+</ol>
+<p>关键区别：</p>
+<ul>
+<li><strong>HTML vs. 文本：</strong> <code>.html()</code> 获取和设置的是包含 HTML 标签的内容，而 <code>.text()</code> 获取和设置的是去除 HTML 标签后的纯文本内容。</li>
+<li><strong>潜在的安全性问题：</strong> 当你使用用户提供的数据时，要注意潜在的安全性问题。使用用户提供的内容作为 <code>.html()</code> 的参数可能导致 XSS（跨站点脚本攻击）问题，因为它会将提供的 HTML 代码解释为实际的 HTML。相比之下，<code>.text()</code> 不会解释 HTML，因此更安全。</li>
+</ul>
+<pre><code class="html">    &lt;div id="container" style="display: inline;"&gt;
+        这是div中的文字
+        &lt;span&gt;这是span中的文字&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    $(function(){
+                $("#disp").text(
+                    $("#container").text()
+                );
+            });
+    &lt;/script&gt;
+        
+</code></pre>
+<p><img src="/../images/image-20231227192524022.png" alt="image-20231227192524022"></p>
+<pre><code class="html">    &lt;div id="container" style="display: inline;"&gt;
+        这是div中的文字
+        &lt;span&gt;这是span中的文字&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    $(function(){
+                $("#disp").text(
+                    $("#container").html()
+                );
+            });
+    &lt;/script&gt;
+</code></pre>
+<p><img src="/../images/image-20231227192630357.png" alt="image-20231227192630357"></p>
+<h1 id="css调整"><a href="#css调整" class="headerlink" title="css调整"></a>css调整</h1><p>jQuery 提供了多种方法来操作元素的 CSS 样式，以下是一些常见的 jQuery CSS 操作：</p>
+<ol>
+<li><p><strong>获取或设置单个样式属性：</strong></p>
+<ul>
+<li><p>获取样式属性：</p>
+<pre><code class="JavaScript">var fontSize = $("div").css("font-size");
+</code></pre>
+</li>
+<li><p>设置样式属性：</p>
+<pre><code class="JavaScript">$("div").css("color", "red");
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>获取或设置多个样式属性：</strong></p>
+<ul>
+<li><p>获取多个样式属性：</p>
+<pre><code class="JavaScript">var styles = $("div").css(["font-size", "color"]);
+</code></pre>
+</li>
+<li><p>设置多个样式属性：</p>
+<pre><code class="JavaScript">$("div").css({
+    "font-size": "16px",
+    "color": "blue"
+});
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>操作类（Class）：</strong></p>
+<ul>
+<li><p>添加类：</p>
+<pre><code class="JavaScript">$("div").addClass("highlight");
+</code></pre>
+</li>
+<li><p>移除类：</p>
+<pre><code class="JavaScript">$("div").removeClass("highlight");
+</code></pre>
+</li>
+<li><p>切换类（存在则移除，不存在则添加）：</p>
+<pre><code class="JavaScript">$("div").toggleClass("highlight");
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>检查类是否存在：</strong></p>
+<pre><code class="JavaScript">if ($("div").hasClass("highlight")) {
+    // 类存在的处理逻辑
+}
+</code></pre>
+</li>
+<li><p><strong>操作元素的可见性：</strong></p>
+<ul>
+<li><p>显示元素：</p>
+<pre><code class="JavaScript">$("div").show();
+</code></pre>
+</li>
+<li><p>隐藏元素：</p>
+<pre><code class="JavaScript">$("div").hide();
+</code></pre>
+</li>
+<li><p>切换元素的可见性：</p>
+<pre><code class="JavaScript">$("div").toggle();
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>设置宽度和高度：</strong></p>
+<pre><code class="JavaScript">$("div").width(200);
+$("div").height(150);
+</code></pre>
+</li>
+<li><p><strong>动画效果：</strong></p>
+<ul>
+<li><p>淡入：</p>
+<pre><code class="JavaScript">$("div").fadeIn();
+</code></pre>
+</li>
+<li><p>淡出：</p>
+<pre><code class="JavaScript">$("div").fadeOut();
+</code></pre>
+</li>
+<li><p>滑动显示：</p>
+<pre><code class="JavaScript">$("div").slideDown();
+</code></pre>
+</li>
+<li><p>滑动隐藏：</p>
+<pre><code class="JavaScript">$("div").slideUp();
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p>这些是一些基本的 jQuery CSS 操作方法。使用这些方法，你可以方便地操控元素的样式、类、可见性和动画效果。</p>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>jQuery 中的选择器是一种强大的工具，用于选择 HTML 文档中的元素。以下是一些常用的 jQuery 选择器：</p>
+<ol>
+<li><strong>元素选择器：</strong><ul>
+<li><code>element</code>：选择所有指定类型的元素，例如 <code>p</code> 选择所有段落元素。</li>
+</ul>
+</li>
+<li><strong>ID 选择器：</strong><ul>
+<li><code>#id</code>：选择指定 id 属性的元素，例如 <code>#header</code> 选择 id 为 “header” 的元素。</li>
+</ul>
+</li>
+<li><strong>类选择器：</strong><ul>
+<li><code>.class</code>：选择指定 class 属性的元素，例如 <code>.highlight</code> 选择所有具有 “highlight” 类的元素。</li>
+</ul>
+</li>
+<li><strong>属性选择器：</strong><ul>
+<li><code>[attribute]</code>：选择具有指定属性的元素，例如 <code>[type]</code> 选择所有具有 “type” 属性的元素。</li>
+<li><code>[attribute=value]</code>：选择具有指定属性和值的元素，例如 <code>[name="username"]</code> 选择所有 name 属性值为 “username” 的元素。</li>
+</ul>
+</li>
+<li><strong>通配符选择器：</strong><ul>
+<li><code>*</code>：选择所有元素。</li>
+</ul>
+</li>
+<li><strong>子元素选择器：</strong><ul>
+<li><code>parent &gt; child</code>：选择指定父元素下的子元素，例如 <code>ul &gt; li</code> 选择 ul 下的所有 li 元素。</li>
+</ul>
+</li>
+<li><strong>后代元素选择器：</strong><ul>
+<li><code>ancestor descendant</code>：选择指定祖先元素下的后代元素，例如 <code>div p</code> 选择所有 div 下的 p 元素。</li>
+</ul>
+</li>
+<li><strong>同级元素选择器：</strong><ul>
+<li><code>prev + next</code>：选择紧接在指定元素后面的同级元素，例如 <code>h2 + p</code> 选择紧接在 h2 后面的 p 元素。</li>
+</ul>
+</li>
+<li><strong>相邻元素选择器：</strong><ul>
+<li><code>prev ~ siblings</code>：选择与指定元素在同一级别的所有同级元素，例如 <code>h2 ~ p</code> 选择与 h2 具有相同父元素的所有 p 元素。</li>
+</ul>
+</li>
+<li><strong>过滤选择器：</strong><ul>
+<li><code>:first</code>：选择匹配的第一个元素。</li>
+<li><code>:last</code>：选择匹配的最后一个元素。</li>
+<li><code>:even</code>：选择匹配的偶数索引元素。</li>
+<li><code>:odd</code>：选择匹配的奇数索引元素。</li>
+<li><code>:eq(index)</code>：选择匹配给定索引值的元素。</li>
+</ul>
+</li>
+</ol>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>实现斑马线效果</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;style&gt;
+        table{
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 800px;
+        }
+        td{
+            text-align: center;
+            margin: 1px solid black;
+            padding: 8px;
+        }
+        tr{
+            margin-bottom: 1px;
+            border: 1px solid black;
+            
+        }
+        .odd{
+            background-color: aqua;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                表头1
+            &lt;/td&gt;
+            &lt;td&gt;
+                表头2
+            &lt;/td&gt;
+            &lt;td&gt;
+                表头3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;button id="button"&gt;修改&lt;/button&gt;
+    &lt;script&gt;
+        $(function(){
+            $("#button").click(
+                function(){
+                    $("table tr:odd").toggleClass("odd");
+                }
+            );
+        });
+        
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h2><p>jQuery 提供了一系列方法，用于操作元素的属性。以下是一些常用的 jQuery 属性操作方法：</p>
+<ol>
+<li><p><strong>获取或设置元素的属性：</strong></p>
+<ul>
+<li><p><code>attr(name)</code>: 获取指定属性的值。</p>
+</li>
+<li><p><code>attr(name, value)</code>: 设置指定属性的值。</p>
+</li>
+<li><p>例子：</p>
+<pre><code class="JavaScript">var value = $("img").attr("src"); // 获取 img 元素的 src 属性值
+$("img").attr("alt", "New Alt Text"); // 设置 img 元素的 alt 属性值
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>删除元素的属性：</strong></p>
+<ul>
+<li><p><code>removeAttr(name)</code>: 删除指定的属性。</p>
+</li>
+<li><p>例子：</p>
+<pre><code class="JavaScript">$("img").removeAttr("alt"); // 删除 img 元素的 alt 属性
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="prop"><a href="#prop" class="headerlink" title="prop"></a>prop</h2><ol>
+<li><p><strong><code>prop</code> 方法：</strong></p>
+<ul>
+<li><p><code>prop</code> 方法用于获取或设置元素的属性值，特别是那些在 HTML 中被定义为属性（而非属性和属性值的形式）的属性，例如 <code>checked</code>、<code>disabled</code> 等。</p>
+</li>
+<li><p><code>prop</code> 方法更适用于处理布尔属性，它返回属性的当前状态，而不仅仅是属性的初始值。</p>
+</li>
+<li><p>例子：</p>
+<pre><code class="JavaScript">var isChecked = $("input").prop("checked"); // 获取第一个 &lt;input&gt; 元素的 checked 属性值
+$("input").prop("disabled", true); // 设置所有 &lt;input&gt; 元素的 disabled 属性为 true
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong><code>attr</code> 方法：</strong></p>
+<ul>
+<li><p><code>attr</code> 方法用于获取或设置元素的属性值，包括那些在 HTML 中被定义为属性和属性值的形式的属性，例如 <code>src</code>、<code>alt</code>、<code>class</code> 等。</p>
+</li>
+<li><p><code>attr</code> 方法更适用于处理非布尔属性，它返回属性的字符串值。</p>
+</li>
+<li><p>例子：</p>
+<pre><code class="JavaScript">var srcValue = $("img").attr("src"); // 获取第一个 &lt;img&gt; 元素的 src 属性值
+$("img").attr("alt", "New Alt Text"); // 设置所有 &lt;img&gt; 元素的 alt 属性值
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>总结：</strong></p>
+<ul>
+<li>使用 <code>prop</code> 主要用于处理布尔属性，例如复选框的 <code>checked</code>、输入框的 <code>disabled</code>。</li>
+<li>使用 <code>attr</code> 主要用于处理其他属性，例如图片的 <code>src</code>、链接的 <code>href</code>、元素的 <code>class</code>。</li>
+</ul>
+<h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><p>jQuery 提供了一系列用于创建动画和效果的方法。以下是一些常用的 jQuery 效果：</p>
+<ol>
+<li><p><strong>显示和隐藏效果：</strong></p>
+<ul>
+<li><code>show(speed)</code>: 以指定速度显示元素。</li>
+<li><code>hide(speed)</code>: 以指定速度隐藏元素。</li>
+<li><code>toggle(speed)</code>: 切换元素的显示和隐藏状态。</li>
+</ul>
+<pre><code>javascriptCopy code$("div").show(1000); // 以1秒的速度显示 div 元素
+$("div").hide("slow"); // 以慢速度隐藏 div 元素
+$("div").toggle(500); // 以0.5秒的速度切换 div 元素的显示和隐藏状态
+</code></pre>
+</li>
+<li><p><strong>淡入和淡出效果：</strong></p>
+<ul>
+<li><code>fadeIn(speed)</code>: 以指定速度淡入元素。</li>
+<li><code>fadeOut(speed)</code>: 以指定速度淡出元素。</li>
+<li><code>fadeToggle(speed)</code>: 切换元素的淡入和淡出状态。</li>
+</ul>
+<pre><code class="JavaScript">$("div").fadeIn("fast"); // 以快速速度淡入 div 元素
+$("div").fadeOut(1500); // 以1.5秒的速度淡出 div 元素
+$("div").fadeToggle("slow"); // 以慢速度切换 div 元素的淡入和淡出状态
+</code></pre>
+</li>
+<li><p><strong>滑动效果：</strong></p>
+<ul>
+<li><code>slideDown(speed)</code>: 以指定速度滑下显示元素。</li>
+<li><code>slideUp(speed)</code>: 以指定速度滑上隐藏元素。</li>
+<li><code>slideToggle(speed)</code>: 切换元素的滑动显示和隐藏状态。</li>
+</ul>
+<pre><code class="JavaScript">$("div").slideDown(1000); // 以1秒的速度滑下显示 div 元素
+$("div").slideUp("slow"); // 以慢速度滑上隐藏 div 元素
+$("div").slideToggle(500); // 以0.5秒的速度切换 div 元素的滑动显示和隐藏状态
+</code></pre>
+</li>
+<li><p><strong>自定义动画效果：</strong></p>
+<ul>
+<li><code>animate(properties, speed, easing, complete)</code>: 通过指定的 CSS 属性进行自定义动画。</li>
+</ul>
+<pre><code class="JavaScript">$("div").animate({ left: '250px', opacity: '0.5' }, "slow");
+</code></pre>
+</li>
+</ol>
+<h2 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h2><p>使得表格变长变短</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;style&gt;
+        table{
+            border-collapse: collapse;
+            table-layout: fixed;
+            width: 800px;
+        }
+        td{
+            text-align: center;
+            margin: 1px solid black;
+            padding: 8px;
+            
+        }
+        tr{
+            height: 50px;
+            margin-bottom: 1px;
+            border: 1px solid black;
+            
+        }
+        .odd{
+            background-color: aqua;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                表头1
+            &lt;/td&gt;
+            &lt;td&gt;
+                表头2
+            &lt;/td&gt;
+            &lt;td&gt;
+                表头3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                1
+            &lt;/td&gt;
+            &lt;td&gt;
+                2
+            &lt;/td&gt;
+            &lt;td&gt;
+                3
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;button id="button"&gt;修改&lt;/button&gt;
+    &lt;button id="long"&gt;缓慢变长&lt;/button&gt;
+    &lt;button id="short"&gt;缓慢变短&lt;/button&gt;
+    &lt;script&gt;
+        $(function(){
+            $("#button").click(
+                function(){
+                    $("table tr:odd").toggleClass("odd");
+                }
+            );
+        });
+        $(
+            function(){
+                $("#long").click(
+                    function(){
+                        $("tr:even").animate({height : "100px"}, 1000);
+                    }
+                );
+                $("#short").click(
+                    function(){
+                        $("tr:even").animate({height : "50px"}, 1000);
+                    }
+                );
+            }
+        );
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><p>在 jQuery 中，事件是与用户交互或浏览器操作相关的行为，例如点击、鼠标悬停、键盘输入等。jQuery 提供了一系列方法来处理和绑定这些事件。以下是一些常用的 jQuery 事件：</p>
+<ol>
+<li><p><strong>鼠标事件：</strong></p>
+<ul>
+<li><code>click()</code>: 当元素被点击时触发。</li>
+<li><code>dblclick()</code>: 当元素被双击时触发。</li>
+<li><code>mousedown()</code>: 当鼠标按下时触发。</li>
+<li><code>mouseup()</code>: 当鼠标释放时触发。</li>
+<li><code>mousemove()</code>: 当鼠标在元素上移动时触发。</li>
+<li><code>mouseover()</code>: 当鼠标移入元素时触发。</li>
+<li><code>mouseout()</code>: 当鼠标移出元素时触发。</li>
+</ul>
+<pre><code class="JavaScript">$("button").click(function() {
+    alert("Button Clicked!");
+});
+
+$("div").mouseover(function() {
+    $(this).css("background-color", "yellow");
+});
+</code></pre>
+</li>
+<li><p><strong>键盘事件：</strong></p>
+<ul>
+<li><code>keydown()</code>: 当键盘按下任意键时触发。</li>
+<li><code>keypress()</code>: 当键盘按下字符键时触发。</li>
+<li><code>keyup()</code>: 当键盘释放任意键时触发。</li>
+</ul>
+<pre><code class="JavaScript">$(document).keydown(function(event) {
+    console.log("Key pressed: " + event.key);
+});
+</code></pre>
+</li>
+<li><p><strong>表单事件：</strong></p>
+<ul>
+<li><code>submit()</code>: 当表单提交时触发。</li>
+<li><code>change()</code>: 当表单元素的值发生改变时触发。</li>
+<li><code>focus()</code>: 当元素获得焦点时触发。</li>
+<li><code>blur()</code>: 当元素失去焦点时触发。</li>
+</ul>
+<pre><code class="JavaScript">$("form").submit(function(event) {
+    event.preventDefault(); // 阻止表单提交
+    alert("Form Submitted!");
+});
+
+$("input").change(function() {
+    console.log("Input value changed: " + $(this).val());
+});
+</code></pre>
+</li>
+<li><p><strong>窗口事件：</strong></p>
+<ul>
+<li><code>resize()</code>: 当浏览器窗口大小发生改变时触发。</li>
+<li><code>scroll()</code>: 当页面滚动时触发。</li>
+</ul>
+<pre><code class="JavaScript">$(window).resize(function() {
+    console.log("Window resized!");
+});
+
+$(window).scroll(function() {
+    console.log("Page scrolled!");
+});
+</code></pre>
+</li>
+</ol>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2023/12/26/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8BJSP/" title="学习记录之JSP"><span class="has-text-weight-semibold">下一页: 学习记录之JSP</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
