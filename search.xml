@@ -4,6 +4,95 @@
   
     
     <entry>
+      <title>学习记录之MVC</title>
+      <link href="/2024/01/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8BMVC/"/>
+      <url>/2024/01/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8BMVC/</url>
+      
+        <content type="html"><![CDATA[<h1 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h1><p>MVC（Model-View-Controller）是一种软件设计模式，用于组织应用程序的结构，以使其更容易理解、维护和扩展。这个模式将应用程序分为三个主要组成部分：模型（Model）、视图（View）和控制器（Controller）。</p><ol><li><strong>模型（Model）：</strong><ul><li>模型代表应用程序的数据和业务逻辑。它负责处理应用程序的数据存储、检索、更新和验证。模型是应用程序中负责处理数据和业务规则的部分。</li></ul></li><li><strong>视图（View）：</strong><ul><li>视图负责展示数据给用户并接收用户的输入。它是用户界面的部分，负责呈现模型的数据以及将用户的输入传递给控制器。视图通常包括用户界面元素，如图形界面、网页或终端输出。</li></ul></li><li><strong>控制器（Controller）：</strong><ul><li>控制器是模型和视图之间的中介。它负责接收用户输入、更新模型和更新视图。控制器从视图接收用户的操作，根据这些操作更新模型，并确保视图反映模型的最新状态。控制器还处理应用程序的业务逻辑和流程控制。</li></ul></li></ol><p>MVC 的核心思想是将应用程序的不同方面分离开，以降低耦合度，提高代码的可维护性和可扩展性。通过清晰定义模型、视图和控制器之间的职责，开发人员可以更容易地协同工作，修改特定部分而不影响其他部分。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pr动画线条转换</title>
+      <link href="/2024/01/19/pr%E5%8A%A8%E7%94%BB%E7%BA%BF%E6%9D%A1%E8%BD%AC%E6%8D%A2/"/>
+      <url>/2024/01/19/pr%E5%8A%A8%E7%94%BB%E7%BA%BF%E6%9D%A1%E8%BD%AC%E6%8D%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>0.先把素材ALT复制一份放到上方，用于遮罩我觉得是。都是对上方的操作。</p><p>1.选择素材，添加色彩效果，去除其本身颜色。<img src="/../images/image-20240119150932059.png" alt="image-20240119150932059"></p><p>2.对视频部分添加查找边缘效果。是动漫风格。<img src="/../images/image-20240119151114350.png" alt="image-20240119151114350"></p><p>3.找到水墨素材，最后是黑色。如果不是就用反转反色一下。</p><p><img src="/../images/image-20240119154355169.png" alt="image-20240119154355169"></p><p>4.在要更改的地方，剪一下。设置上轨道遮罩，选亮度遮罩。我认为遮罩均为黑色之后就显示出下面的有颜色的视频了。</p><p><img src="/../images/image-20240119165236011.png" alt="image-20240119165236011"></p><p><img src="/../images/image-20240119165322921.png" alt="image-20240119165322921"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> pr </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pr位移拉镜</title>
+      <link href="/2024/01/19/pr%E4%BD%8D%E7%A7%BB%E6%8B%89%E9%95%9C/"/>
+      <url>/2024/01/19/pr%E4%BD%8D%E7%A7%BB%E6%8B%89%E9%95%9C/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pr旋转拉镜</title>
+      <link href="/2024/01/19/pr%E6%97%8B%E8%BD%AC%E6%8B%89%E9%95%9C/"/>
+      <url>/2024/01/19/pr%E6%97%8B%E8%BD%AC%E6%8B%89%E9%95%9C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>要用到之前的动态拼贴</p><p>1.添加调整图层，应用动态拼贴。</p><p><img src="/../images/image-20240119135955835.png" alt="image-20240119135955835"></p><p>2.调节最后一个变换的关键帧，设置旋转以及快门角度。还可以设置速度缓入缓出，自行设置速度等。</p><p><img src="/../images/image-20240119140143324.png" alt="image-20240119140143324"></p><h1 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h1><p><a href="https://www.bilibili.com/video/BV1bQ4y1w7F4/?vd_source=7f18a4fbc55a8bc97f10aeee51e7d2ea">pr练习旋转拉镜_哔哩哔哩_bilibili</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> pr </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pr动态拼贴</title>
+      <link href="/2024/01/17/pr%E5%8A%A8%E6%80%81%E6%8B%BC%E8%B4%B4/"/>
+      <url>/2024/01/17/pr%E5%8A%A8%E6%80%81%E6%8B%BC%E8%B4%B4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="动态拼贴"><a href="#动态拼贴" class="headerlink" title="动态拼贴"></a>动态拼贴</h1><p>可以延生图层的边缘，输出的宽度和高度表示延长的尺寸</p><p>步骤</p><ol><li>选中一个视频，创建调整图层。</li><li>为图层添加效果。<img src="/../images/image-20240117201052954.png" alt="image-20240117201052954"></li></ol><p>3.效果如下。变换是变换为50%，第二次为100%。中间为四次镜像。<img src="/../images/image-20240117201137721.png" alt="image-20240117201137721"></p><p>4.产生如下的效果。<img src="/../images/image-20240117201317448.png" alt="image-20240117201317448"></p><p>如果设置为了100%，那么在变换的时候会有很好的效果。</p><h1 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h1><p><a href="https://www.bilibili.com/video/BV1dK4y1q7tM/?vd_source=7f18a4fbc55a8bc97f10aeee51e7d2ea">pr练习动态拼接_哔哩哔哩_bilibili</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> pr </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>搓一个简单的登录页面</title>
       <link href="/2024/01/17/%E6%90%93%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2/"/>
       <url>/2024/01/17/%E6%90%93%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2/</url>
