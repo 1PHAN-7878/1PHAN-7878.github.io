@@ -3,7 +3,7 @@
 在传统的程序设计中，应用程序代码负责创建和管理对象。但在控制反转中，这一控制权被颠倒过来，对象的创建和管理被外部容器负责。这意味着，应用程序不再直接创建对象，而是通过容器提供的机制来获取所需的对象。
 具体来说，在 Java 中，常常使用 Spring 框架实现控制反转。在 Spring 中，对象的创建和依赖关系的管理交给了 Spring 容器。通过配置文件或注解，开发者描述了对象之间的关系，而不需要手动创建这些对象。Spring 容器负责根据配置文件或注解，实例化对象、管理它们的生命周期，并在需要的地方.."><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Spring之IOC</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IOC"><span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%E9%85%8D%E7%BD%AE"><span class="toc-text">Spring配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="toc-text">依赖注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B3%A8%E5%85%A5"><span class="toc-text">构造函数注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setter%E6%B3%A8%E5%85%A5"><span class="toc-text">Setter注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-text">泛型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5"><span class="toc-text">自动注入</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/java"><i class="tag post-item-tag">java</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">Spring之IOC</h1><time class="has-text-grey" datetime="2024-01-20T07:32:00.000Z">2024-01-20</time><article class="mt-2 post-content"><h1 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h1><p>“IOC” 是 “Inversion of Control”（控制反转）的缩写。这是一种编程原则，它改变了传统的程序设计流程，主要体现在对象的控制权从应用程序代码中转移到外部容器（通常是框架或容器）。</p>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">Spring之IOC</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IOC"><span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring%E9%85%8D%E7%BD%AE"><span class="toc-text">Spring配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="toc-text">依赖注入</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%B3%A8%E5%85%A5"><span class="toc-text">构造函数注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setter%E6%B3%A8%E5%85%A5"><span class="toc-text">Setter注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-text">泛型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%85%A5"><span class="toc-text">自动注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91"><span class="toc-text">注解开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEmaven%E4%BE%9D%E8%B5%96"><span class="toc-text">配置maven依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89bean"><span class="toc-text">定义bean</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1"><span class="toc-text">三个层次</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="toc-text">配置类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scope%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">@Scope作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5-1"><span class="toc-text">依赖注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="toc-text">例子</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/java"><i class="tag post-item-tag">java</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">Spring之IOC</h1><time class="has-text-grey" datetime="2024-01-20T07:32:00.000Z">2024-01-20</time><article class="mt-2 post-content"><h1 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h1><p>“IOC” 是 “Inversion of Control”（控制反转）的缩写。这是一种编程原则，它改变了传统的程序设计流程，主要体现在对象的控制权从应用程序代码中转移到外部容器（通常是框架或容器）。</p>
 <p>在传统的程序设计中，应用程序代码负责创建和管理对象。但在控制反转中，这一控制权被颠倒过来，对象的创建和管理被外部容器负责。这意味着，应用程序不再直接创建对象，而是通过容器提供的机制来获取所需的对象。</p>
 <p>具体来说，在 Java 中，常常使用 Spring 框架实现控制反转。在 Spring 中，对象的创建和依赖关系的管理交给了 Spring 容器。通过配置文件或注解，开发者描述了对象之间的关系，而不需要手动创建这些对象。Spring 容器负责根据配置文件或注解，实例化对象、管理它们的生命周期，并在需要的地方注入依赖。</p>
 <p>这种方式有助于降低组件之间的耦合度，提高代码的可维护性和灵活性。控制反转是面向对象编程的一种思想，旨在提高代码的模块化程度和可测试性。</p>
@@ -154,4 +154,363 @@ public class Book {
 <p>Spring 会根据构造函数的参数类型，在容器中查找匹配的 Bean，并将其自动装配到对应的构造函数参数上。</p>
 </li>
 </ol>
-</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2024/01/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8BMVC/" title="学习记录之MVC"><span class="has-text-weight-semibold">下一页: 学习记录之MVC</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><pre><code class="java">import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import pojo.Agent;
+import pojo.Book;
+
+public class Application {
+    public static void main(String[] args) {
+        //加载配置文件初始化容器
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Book book = (Book) ctx.getBean("book");
+        Agent agent = book.getAgent();
+        System.out.println(agent.getName());
+    }
+}
+</code></pre>
+<h1 id="注解开发"><a href="#注解开发" class="headerlink" title="注解开发"></a>注解开发</h1><h2 id="配置maven依赖"><a href="#配置maven依赖" class="headerlink" title="配置maven依赖"></a>配置maven依赖</h2><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+    &lt;version&gt;5.3.10&lt;/version&gt; &lt;!-- 使用适当的版本号 --&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+    &lt;version&gt;5.3.10&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+    &lt;version&gt;5.3.10&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;
+    &lt;version&gt;5.3.10&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+            &lt;groupId&gt;javax.annotation&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.annotation-api&lt;/artifactId&gt;
+            &lt;version&gt;1.2&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+<h2 id="定义bean"><a href="#定义bean" class="headerlink" title="定义bean"></a>定义bean</h2><p>使用<code>@Component</code>定义bean</p>
+<pre><code class="java">package pojo;
+
+import org.springframework.stereotype.Component;
+
+@Component("newBook")
+public class NewBook {
+
+}
+</code></pre>
+<h3 id="三个层次"><a href="#三个层次" class="headerlink" title="三个层次"></a>三个层次</h3><p>Spring提供了几个与 <code>@Component</code> 注解相关的衍生注解，用于更精确地定义组件的角色。这些衍生注解分别是：<code>@Repository</code>、<code>@Service</code>、和 <code>@Controller</code>。这些注解的作用是更好地表达组件的用途，以及在使用Spring自动组件扫描时对不同层次的组件进行更细粒度的区分。</p>
+<ol>
+<li><p><strong><code>@Repository</code>：</strong></p>
+<ul>
+<li><code>@Repository</code> 注解用于标识数据访问层（DAO）的组件。它表明被注解的类负责数据库访问、数据存储等持久化层的工作。通常与 Spring 的异常转换机制一起使用，将数据访问层的异常转换为 Spring 的 DataAccessException。</li>
+</ul>
+<pre><code class="java">@Repository
+public class MyRepository {
+    // 数据访问相关的方法
+}
+</code></pre>
+</li>
+<li><p><strong><code>@Service</code>：</strong></p>
+<ul>
+<li><code>@Service</code> 注解用于标识业务逻辑层的组件。它表明被注解的类包含业务逻辑，负责处理业务规则、流程等。通常在服务层使用。</li>
+</ul>
+<pre><code class="java">@Service
+public class MyService {
+    // 业务逻辑相关的方法
+}
+</code></pre>
+</li>
+<li><p><strong><code>@Controller</code>：</strong></p>
+<ul>
+<li><code>@Controller</code> 注解用于标识控制层的组件，通常用于处理Web请求。它表明被注解的类是一个控制器，处理用户的HTTP请求，并返回相应的视图。</li>
+</ul>
+<pre><code class="java">@Controller
+public class MyController {
+    // 处理HTTP请求的方法
+}
+</code></pre>
+</li>
+</ol>
+<h2 id="配置类"><a href="#配置类" class="headerlink" title="配置类"></a>配置类</h2><p>Spring3.0采用注解开发，用配置类代替xml配置，加快开发速度。</p>
+<pre><code class="java">package config;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+//声明当前为配置类
+@Configuration
+//设置扫描路径，多个路径书写为字符串格式
+@ComponentScan({"config", "pojo", "service"})
+public class AppConfig {
+}
+</code></pre>
+<pre><code class="java">import config.AppConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import pojo.NewBook;
+
+public class Application2 {
+
+    public static void main(String[] args) {
+        //加载配置类，初始化Spring容器
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+        //获取对象
+        NewBook newBook = (NewBook) ctx.getBean("newBook");
+        newBook.func();
+    }
+
+
+}
+</code></pre>
+<h2 id="Scope作用域"><a href="#Scope作用域" class="headerlink" title="@Scope作用域"></a>@Scope作用域</h2><ol>
+<li><p><strong>Singleton（默认）：</strong></p>
+<ul>
+<li><code>@Scope("singleton")</code> 或 <code>@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)</code>。</li>
+<li>表示在 Spring 容器中，只存在一个共享的 Bean 实例。这是默认的作用域。</li>
+</ul>
+<pre><code class="java">@Component
+@Scope("singleton")
+public class MySingletonBean {
+    // ...
+}
+</code></pre>
+</li>
+<li><p><strong>Prototype：</strong></p>
+<ul>
+<li><code>@Scope("prototype")</code> 或 <code>@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)</code>。</li>
+<li>表示每次通过容器的 <code>getBean</code> 方法获取 Bean 时，都会创建一个新的实例。</li>
+</ul>
+<pre><code class="java">@Component
+@Scope("prototype")
+public class MyPrototypeBean {
+    // ...
+}
+</code></pre>
+</li>
+<li><p><strong>Request：</strong></p>
+<ul>
+<li><code>@Scope("request")</code>。</li>
+<li>表示在一次 HTTP 请求内，共享同一个 Bean 实例。仅在 Spring Web 应用中有效，需要启用 <code>RequestScope</code>。</li>
+</ul>
+<pre><code class="java">@Component
+@Scope("request")
+public class MyRequestScopedBean {
+    // ...
+}
+</code></pre>
+</li>
+<li><p><strong>Session：</strong></p>
+<ul>
+<li><code>@Scope("session")</code>。</li>
+<li>表示在一个用户会话中，共享同一个 Bean 实例。同样需要在 Spring Web 应用中使用，并启用 <code>SessionScope</code>。</li>
+</ul>
+<pre><code class="java">@Component
+@Scope("session")
+public class MySessionScopedBean {
+    // ...
+}
+</code></pre>
+</li>
+<li><p><strong>GlobalSession：</strong></p>
+<ul>
+<li><code>@Scope("globalSession")</code>。</li>
+<li>表示在全局 HTTP Session 中，共享同一个 Bean 实例。同样需要在 Spring Web 应用中使用，并启用 <code>GlobalSessionScope</code>。</li>
+</ul>
+<pre><code class="java">@Component
+@Scope("globalSession")
+public class MyGlobalSessionScopedBean {
+    // ...
+}
+</code></pre>
+</li>
+</ol>
+<p>选择适当的作用域取决于你的应用程序的需求。默认的 Singleton 适用于大多数情况，但在某些情况下，如需要 Bean 每次调用时都是新实例，可以使用 Prototype。对于 Web 应用程序，Request、Session 和 GlobalSession 作用域通常与 Web 框架一起使用。</p>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>在 Spring 中，可以使用 <code>@PostConstruct</code> 和 <code>@PreDestroy</code> 注解来控制初始化和销毁方法，而不必依赖于 XML 配置。这些注解分别用于标识初始化和销毁方法，并在 Bean 的生命周期中自动调用。</p>
+<ol>
+<li><p><strong>使用 <code>@PostConstruct</code> 注解进行初始化：</strong></p>
+<ul>
+<li><code>@PostConstruct</code> 注解用于标识在 Bean 初始化时需要执行的方法。该方法会在依赖注入之后、任何自定义初始化方法之前被调用。</li>
+</ul>
+<pre><code class="java">import javax.annotation.PostConstruct;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyBean {
+
+    @PostConstruct
+    public void init() {
+        // 这里可以放置初始化逻辑
+        System.out.println("Bean 初始化方法被调用");
+    }
+
+    // 其他业务方法
+}
+</code></pre>
+</li>
+<li><p><strong>使用 <code>@PreDestroy</code> 注解进行销毁：</strong></p>
+<ul>
+<li><code>@PreDestroy</code> 注解用于标识在 Bean 销毁时需要执行的方法。该方法会在容器关闭之前被调用。</li>
+</ul>
+<pre><code class="java">import javax.annotation.PreDestroy;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyBean {
+
+    // 其他业务方法
+
+    @PreDestroy
+    public void destroy() {
+        // 这里可以放置销毁逻辑
+        System.out.println("Bean 销毁方法被调用");
+    }
+}
+</code></pre>
+</li>
+</ol>
+<p>需要注意的是，为了使用 <code>@PostConstruct</code> 和 <code>@PreDestroy</code> 注解，确保以下几点：</p>
+<ul>
+<li>在类上添加 <code>@Component</code> 或其他 Spring 注解，以使这个类被 Spring 容器扫描并作为 Bean 进行管理。</li>
+<li>确保 Spring 容器开启了对注解的扫描。可以通过在配置类上添加 <code>@ComponentScan</code> 注解或在 XML 配置中启用 <code>&lt;context:component-scan&gt;</code>。</li>
+</ul>
+<h2 id="依赖注入-1"><a href="#依赖注入-1" class="headerlink" title="依赖注入"></a>依赖注入</h2><ul>
+<li>通过在成员变量上使用 <code>@Autowired</code>，Spring 容器会尝试将匹配的 bean 注入到成员变量中。</li>
+</ul>
+<pre><code class="java">@Service
+public class MyService {
+
+    @Autowired
+    private MyRepository myRepository;
+
+    // 其他业务方法
+}
+</code></pre>
+<blockquote>
+<p><code>@Qualifier</code> 是 Spring 框架中用于解决自动装配（<code>@Autowired</code>）时，多个候选 bean 产生歧义性的注解。当存在多个符合类型的 bean 可以注入时，<code>@Qualifier</code> 允许指定具体要注入的 bean 的名称或标识符。</p>
+<p>通常情况下，<code>@Autowired</code> 注解会根据类型自动装配一个 bean，但当有多个相同类型的 bean 存在时，Spring 就会产生歧义性。<code>@Qualifier</code> 注解就是为了解决这个问题。</p>
+<p>以下是使用 <code>@Qualifier</code> 的例子：</p>
+<pre><code class="java">@Service
+public class MyService {
+
+    private final MyRepository myRepository;
+
+    @Autowired
+    @Qualifier("myRepositoryImpl") // 使用 @Qualifier 指定要注入的 bean 的名称
+    public MyService(MyRepository myRepository) {
+        this.myRepository = myRepository;
+    }
+
+    // 其他业务方法
+}
+</code></pre>
+<p>在上述例子中，<code>@Qualifier("myRepositoryImpl")</code> 表示要注入名为 “myRepositoryImpl” 的 bean。这样，即使有多个 <code>MyRepository</code> 类型的 bean，Spring 会根据 <code>@Qualifier</code> 提供的信息选择合适的 bean 进行注入。</p>
+<p>如果 bean 的标识符（通常是 bean 的名称）与 <code>@Qualifier</code> 中指定的名称一致，也可以省略 <code>@Qualifier</code> 注解，因为 Spring 默认会根据标识符来进行匹配。</p>
+<pre><code class="java">@Service
+public class MyService {
+
+    private final MyRepository myRepository;
+
+    @Autowired
+    public MyService(@Qualifier("myRepositoryImpl") MyRepository myRepository) {
+        this.myRepository = myRepository;
+    }
+
+    // 其他业务方法
+}
+</code></pre>
+</blockquote>
+<pre><code>//基本类型依赖
+@Value("100")
+private int num;
+</code></pre>
+<h2 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h2><pre><code class="java">package pojo;
+
+//import jakarta.annotation.PostConstruct;
+//import jakarta.annotation.PreDestroy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+@Component("newBook")
+public class NewBook {
+    @Value("100")
+    private int num;
+    //依赖注入
+    @Autowired
+    private NewBookContro newBookContro;
+
+//    @Autowired
+//    public NewBook(@Value("100") int num, NewBookContro newBookContro){
+//        this.num = num;
+//        this.newBookContro = newBookContro;
+//    }
+    public void func(){
+        System.out.println("this is New do!");
+        System.out.println("num is" + num);
+        System.out.println("id is" + newBookContro.getId());
+    }
+    @PostConstruct
+    public void init() {
+        // 这里可以放置初始化逻辑
+        System.out.println("Bean 初始化方法被调用");
+        num = 0;
+
+    }
+    @PreDestroy
+    public void destroy(){
+        System.out.println("Bean 被销毁了");
+    }
+}
+</code></pre>
+<pre><code class="java">package pojo;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component("newBookContro")
+public class NewBookContro {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Value("100")
+    private int id;
+}
+</code></pre>
+<pre><code class="java">import config.AppConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import pojo.NewBook;
+
+public class Application2 {
+
+    public static void main(String[] args) {
+        //加载配置类，初始化Spring容器
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+        NewBook newBook = (NewBook) ctx.getBean("newBook");
+        newBook.func();
+
+    }
+
+
+}
+</code></pre>
+<pre><code>Bean 初始化方法被调用
+this is New do!
+num is0
+id is100
+</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2024/01/20/pr%E7%82%AB%E9%85%B7%E6%8F%8F%E8%BE%B9/" title="pr炫酷描边"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: pr炫酷描边</span></a><a class="button is-default" href="/2024/01/19/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8BMVC/" title="学习记录之MVC"><span class="has-text-weight-semibold">下一页: 学习记录之MVC</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
