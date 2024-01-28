@@ -1,7 +1,113 @@
 <!DOCTYPE html><html class="appearance-dark" lang="zh-CN"><head><meta charset="UTF-8"><title>1PHAN's blog</title><meta name="description" content="welcome！"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
 <!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/widget-post-list.css"><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><span>归档 · 全部</span></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><header><a href="/tags/%E7%AE%97%E6%B3%95"><i class="tag post-item-tag">算法</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/11/25/2022ICPC%E6%B5%8E%E5%8D%97%E9%83%A8%E5%88%86%E9%A2%98%E8%A7%A3/">2022ICPC济南部分题解</a></h2><time class="has-text-grey" datetime="2023-11-25T01:10:47.000Z">2023-11-25</time><p class="is-flex-grow-2 mt-2">Towerhttps://www.luogu.com.cn/problem/list?keyword=icpc2022jinan&amp;amp;type=AT%7CB%7CCF%7CP%7CSP%7CUVA&amp;amp;page=1
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><span>归档 · 全部</span></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><article class="post-container is-flex is-justify-content-center section container is-max-widescreen pt-4 px-2"><div class="columns is-variable is-1-tablet is-3-desktop-only is-2-widescreen is-full-width"><section class="column"><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><header><a href="/tags/Unity"><i class="tag post-item-tag">Unity</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/12/04/Unity%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%91%84%E5%83%8F%E5%A4%B4%E8%B7%9F%E9%9A%8F%E7%89%A9%E4%BD%93%E6%97%8B%E8%BD%AC%E7%A7%BB%E5%8A%A8/">Unity中实现摄像头跟随物体旋转移动</a></h2><time class="has-text-grey" datetime="2023-12-04T12:47:26.000Z">2023-12-04</time><p class="is-flex-grow-2 mt-2">需求想做一个类似于很多游戏中，你移动了视角，摄像机移动了视角，物体移动了角度。但是物体还是保持在屏幕中心，而且当你移动之后，wasd控制的移动是根据你的视角向前移动的，而不是向初始的方向移动，这个其实做起来还是有点难度（新。
+实现player.cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class player : MonoBehaviour
+{
+    public Camera playerCamera;
+    public float rotateSpeed = 3f;
+    public float moveSpeed = 1f;
+
+    public Rig..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/12/04/Unity%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%91%84%E5%83%8F%E5%A4%B4%E8%B7%9F%E9%9A%8F%E7%89%A9%E4%BD%93%E6%97%8B%E8%BD%AC%E7%A7%BB%E5%8A%A8/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/../images/image-20231201112520040.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/12/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%81%B0%E8%89%B2%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0/"><img class="post-cover-img js-img-fadeIn" src="/../images/image-20231201112520040.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><i class="tag post-item-tag">机器学习</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/12/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%81%B0%E8%89%B2%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0/">机器学习中灰色模型学习</a></h2><time class="has-text-grey" datetime="2023-12-01T03:17:18.000Z">2023-12-01</time><p class="is-flex-grow-2 mt-2">应用背景
+数据不足： 在实际问题中，很多时候我们面对的数据可能是有限的、不足的，尤其是对于一些新兴、不成熟的领域或者新产品的推测。传统的统计方法和机器学习方法通常对于数据量的要求较高，而在这些情况下，数据量可能不足以支持建立复杂的模型。
+不确定性： 一些系统的演化规律可能比较复杂，而且系统内部的因素相互影响，导致建模时存在较大的不确定性。灰色预测模型的设计目的就是在信息不完备和不确定性的情况下，提供一种相对简单但有效的预测手段。
+小样本问题： 在某些情况下，由于资源有限或者系统较为封闭，我们只能获得有限的样本数据。灰色预测模型的一些变体，尤其是GM(1,1)，在小样本问题上表现出一定的优势。
+
+使用方法灰色预测模型的核心思想是将时间序列数据分为两个部分：已知部分和未知部分。已知部分包括具有完整信息的历史数据..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/12/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%81%B0%E8%89%B2%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/../images/image-20231201102436343.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/12/01/MATLABQ%E8%89%AE%E8%AF%BE%E5%A0%82%E4%BB%BB%E5%8A%A1%E4%B9%8B%E4%B8%A4%E5%BC%A0%E7%BB%99%E5%AE%9A%E7%9A%84%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E8%A7%84%E5%AE%9A%E5%8C%96/"><img class="post-cover-img js-img-fadeIn" src="/../images/image-20231201102436343.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/MATLAB"><i class="tag post-item-tag">MATLAB</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/12/01/MATLABQ%E8%89%AE%E8%AF%BE%E5%A0%82%E4%BB%BB%E5%8A%A1%E4%B9%8B%E4%B8%A4%E5%BC%A0%E7%BB%99%E5%AE%9A%E7%9A%84%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E8%A7%84%E5%AE%9A%E5%8C%96/">MATLABQ艮课堂任务之两张给定的图像数据规定化</a></h2><time class="has-text-grey" datetime="2023-12-01T02:19:53.000Z">2023-12-01</time><p class="is-flex-grow-2 mt-2">任务描述天气很冷，Q艮又是作为最后一节课，没想到是布置了上课的作业（其实是课上交给他的话会有一扣扣的加分啊）。任务呢，是给定了图像像素的分布，为了简化，只有八像素的灰度。将原本图像，按照给定的分布，重新排布，称之为规定化。
+
+代码如下：
+% 给定数组 A、B 和 C
+A = [790, 1023, 850, 656, 329, 245, 122, 81];
+B = [0, 1, 2, 3, 4, 5, 6, 7];
+C = [0, 0, 0, 15, 20, 30, 20, 15];
+
+% 初始化结果数组
+result = zeros(1, 8);
+resultadd = zeros(1, 8);
+
+% 计算数组 A 和 C 的累积和
+A_sum = cumsum(A);
+A_p = A / max(A_s..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/12/01/MATLABQ%E8%89%AE%E8%AF%BE%E5%A0%82%E4%BB%BB%E5%8A%A1%E4%B9%8B%E4%B8%A4%E5%BC%A0%E7%BB%99%E5%AE%9A%E7%9A%84%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E8%A7%84%E5%AE%9A%E5%8C%96/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/../images/clip_image002-1701162382756-3.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E5%99%A8RIP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E9%AA%8C/"><img class="post-cover-img js-img-fadeIn" src="/../images/clip_image002-1701162382756-3.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><i class="tag post-item-tag">计算机网络</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E5%99%A8RIP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E9%AA%8C/">路由器RIP协议实验</a></h2><time class="has-text-grey" datetime="2023-11-28T09:06:01.000Z">2023-11-28</time><p class="is-flex-grow-2 mt-2">实验九、路由信息协议（RIP）实验
+请大家画出如图所示拓扑图（与上次实验一样，这次采用动态路由协议进行配置）
+
+
+
+
+名称
+接口
+IP地址
+网关
+
+
+
+Router1
+F0/0
+192.168.1.1/24
+
+
+
+F0/1
+172.1.1.1/24
+
+
+
+
+Router2
+F0/0
+172.2.2.1/24
+
+
+
+F0/1
+192.168.1.2/24
+
+
+
+
+PC1
+
+172.1.1.2/24
+172.1.1.1
+
+
+PC2
+
+172.1.1.3/24
+172.1.1.1
+
+
+PC3
+
+172.2.2.2/24
+172.2.2.1
+
+
+PC4
+
+172.2.2.3/24
+172.2.2.1
+
+
+Router1：
+
+基本配置如下：
+
+ 
+
+Router(config)#router rip
+
+Router(..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/11/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%B7%AF%E7%94%B1%E5%99%A8RIP%E5%8D%8F%E8%AE%AE%E5%AE%9E%E9%AA%8C/">更多</a></section></article><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><header><a href="/tags/android"><i class="tag post-item-tag">android</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/11/25/%E5%9F%BA%E4%BA%8Eandroid%E7%9A%84%E4%B8%80%E4%B8%AA%E8%AF%AD%E5%BD%95%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">基于android的一个语录开发过程记录</a></h2><time class="has-text-grey" datetime="2023-11-25T08:09:41.000Z">2023-11-25</time><p class="is-flex-grow-2 mt-2">开发开始很早之前参与编写了一篇语录，大概有3W字，正好学习了android开发的一些相关知识，能否通过这个机会开发出一个app展示语录，就类似阅读器这种的。
+尝试写第一个页面刘这一部分是关于将的介绍，那么肯定是从宇轩开始。
+&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;
+&amp;lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layo..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/11/25/%E5%9F%BA%E4%BA%8Eandroid%E7%9A%84%E4%B8%80%E4%B8%AA%E8%AF%AD%E5%BD%95%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">更多</a></section></article><article class="post-item-card"><section class="content post-card-content p-4 pb-5"><header><a href="/tags/%E7%AE%97%E6%B3%95"><i class="tag post-item-tag">算法</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/11/25/2022ICPC%E6%B5%8E%E5%8D%97%E9%83%A8%E5%88%86%E9%A2%98%E8%A7%A3/">2022ICPC济南部分题解</a></h2><time class="has-text-grey" datetime="2023-11-25T01:10:47.000Z">2023-11-25</time><p class="is-flex-grow-2 mt-2">Towerhttps://www.luogu.com.cn/problem/list?keyword=icpc2022jinan&amp;amp;type=AT%7CB%7CCF%7CP%7CSP%7CUVA&amp;amp;page=1
 #include &amp;lt;iostream&amp;gt;
 #include &amp;lt;vector&amp;gt;
 #include &amp;lt;cstdio&amp;gt;
@@ -68,99 +174,7 @@ public class AI : MonoBehaviour
 
 结果竟然是两个111，为什么父进程第二次创建子进程会再次执行它上一行代码里面所包含的111？到这里更加觉得奇怪。
 询问后有同事认为是孤儿进程的问题。
-如果是 systemd，它的策略是接管孤儿进程，并将其变为独立进程路士磊 202118640111 2023/11/15 19:27:45这个..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/11/16/%E5%85%B3%E4%BA%8Elinux%E7%9A%84fork%E8%BF%9B%E7%A8%8B%E4%B8%ADstdout%E4%B8%AD%E7%9A%84%E7%BC%93%E5%86%B2%E9%97%AE%E9%A2%98/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/../images/image-20231114160155722.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9CVTP%E9%85%8D%E7%BD%AE/"><img class="post-cover-img js-img-fadeIn" src="/../images/image-20231114160155722.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><i class="tag post-item-tag">计算机网络</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9CVTP%E9%85%8D%E7%BD%AE/">计算机网络VTP配置</a></h2><time class="has-text-grey" datetime="2023-11-14T07:59:30.000Z">2023-11-14</time><p class="is-flex-grow-2 mt-2">实验六plus、VTP的配置一、实验目的测试同学们对VLAN配置及交换机命令的掌握情况
-二、实验内容1.安装CISCO模拟器；
-2.画出网络拓扑图；
-3.进行VTP的配置；
-4.测试VLAN的通信效果。
-三、实验步骤在模拟器中构建一个如下图所示的网络拓扑图，配置三个VLAN，VLAN111用于教师VLAN，VLAN222用于学生VLAN，VLAN333用于其他用户。
-​                               
-请自己写命令完成VLAN的配置，要求将Switch0改名为SW111，Switch1改名为SW222，且SW111为VTP服务器，SW222为VTP客户端，在SW111上配置完VLAN后，SW222将自动获取三个VLAN的配置信息。
-记得交换机和VLAN都要改名字，VLAN改名字..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/11/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9CVTP%E9%85%8D%E7%BD%AE/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/../images/image-20231108204739001.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/11/08/MATLAB%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%83%8F%E7%81%B0%E5%BA%A6%E5%80%BC%E7%9A%84%E4%B8%80%E4%BA%9B%E8%B0%83%E6%95%B4%E7%BA%BF%E6%80%A7%E4%B8%8E%E9%9D%9E%E7%BA%BF%E6%80%A7/"><img class="post-cover-img js-img-fadeIn" src="/../images/image-20231108204739001.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/MATLAB"><i class="tag post-item-tag">MATLAB</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/11/08/MATLAB%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%83%8F%E7%81%B0%E5%BA%A6%E5%80%BC%E7%9A%84%E4%B8%80%E4%BA%9B%E8%B0%83%E6%95%B4%E7%BA%BF%E6%80%A7%E4%B8%8E%E9%9D%9E%E7%BA%BF%E6%80%A7/">MATLAB关于图像灰度值的一些调整线性与非线性</a></h2><time class="has-text-grey" datetime="2023-11-08T12:33:50.000Z">2023-11-08</time><p class="is-flex-grow-2 mt-2">今天Q艮点名，还整的挺彳亍。晚上实验，先用ps的那个图像有个调整灰度分布的曲线，捏着就调整了，挺彳。
-作业的话当然不是整理成ps那种的形式太难了。而是一个线性的映射，一个对数的映射。
-代码与结果如下：
-img = imread('C:\Users\7878\Desktop\my_image.png');
-img1 = imresize(img, 0.3);
-img1 = rgb2gray(img1);
-subplot(2, 2, 1);
-imshow(img1);
- 
-[r,c] = size(img1);
- 
-output_image1 = zeros(size(img1));
- 
-% 
- 
-function1 = @(x) x * 1.5;
- 
-for i=1:r
-    for j=1:c
-     ..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/11/08/MATLAB%E5%85%B3%E4%BA%8E%E5%9B%BE%E5%83%8F%E7%81%B0%E5%BA%A6%E5%80%BC%E7%9A%84%E4%B8%80%E4%BA%9B%E8%B0%83%E6%95%B4%E7%BA%BF%E6%80%A7%E4%B8%8E%E9%9D%9E%E7%BA%BF%E6%80%A7/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/../images/image-20231107163636646.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%99%9A%E6%8B%9F%E7%BD%91%E5%AE%9E%E9%AA%8C2/"><img class="post-cover-img js-img-fadeIn" src="/../images/image-20231107163636646.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><i class="tag post-item-tag">计算机网络</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%99%9A%E6%8B%9F%E7%BD%91%E5%AE%9E%E9%AA%8C2/">计算机网络虚拟网实验2</a></h2><time class="has-text-grey" datetime="2023-11-07T08:35:46.000Z">2023-11-07</time><p class="is-flex-grow-2 mt-2">实验六 虚拟局域网（VLAN）实验练习一、实验目的1．练习巩固上次实验的内容
-二、实验步骤1．画图如下，按表格内容进行配置，并将switch0改名为SWA，switch1改名为SWB。
-​     
-
-
-
-名称
-相连的接口
-IP地址
-
-
-
-PC1
-F0/5
-172.1.1.2/24
-
-
-PC2
-F0/6
-172.1.1.3/24
-
-
-PC3
-F0/7
-172.1.1.4/24
-
-
-PC4
-F0/5
-172.1.1.10/24
-
-
-PC5
-F0/6
-172.1.1.11/24
-
-
-PC6
-F0/7
-172.1.1.12/24
-
-
-回答问题：
-此时PC1—PC6之间是否是互通的？
-==此时是相互可以通信的。==
-2、分别在SWA和SWB上创建三个vlan，命名为vlan2，vlan3和vlan4
-在SWA上将f..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%99%9A%E6%8B%9F%E7%BD%91%E5%AE%9E%E9%AA%8C2/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/../images/clip_image002.png" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%9E%E9%AA%8C/"><img class="post-cover-img js-img-fadeIn" src="/../images/clip_image002.png" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><i class="tag post-item-tag">计算机网络</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%9E%E9%AA%8C/">计算机网络虚拟局域网实验</a></h2><time class="has-text-grey" datetime="2023-11-07T07:51:45.000Z">2023-11-07</time><p class="is-flex-grow-2 mt-2">实验六 虚拟局域网（VLAN）实验一、实验目的1.掌握VLAN的划分方法。
-2.理解划分VLAN的作用。
-3.掌握VTP的配置方法。
-二、实验内容1.画出网络拓扑图。
-2.进行VLAN的划分。
-3.测试VLAN的通信效果。
-4.进行VTP的配置并测试通信效果。
-三、实验原理VLAN就是虚拟局域网，它用于把物理上直接相连的网络从逻辑上划分成多个子网。每一个VLAN对应着一个广播域，处于不同VLAN的主机不能直接进行通信，而必须借助第三层交换技术。
-在大型网络中交换机较多的情况下，可以利用交换机的VTP模式进行VLAN划分的学习，统一网络结构，减少网络配置的工作量。
-四、实验步骤1、基本VLAN配置
-在模拟器中新建一个如下图所示的网络拓扑图，并设置好每台PC的IP地址和子网掩码。
-
-单击交换机，在CLI标签下输..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%E5%AE%9E%E9%AA%8C/">更多</a></section></article><article class="post-item-card"><header class="is-relative is-flex"><div class="post-cover-backdrop is-hidden"><img src="/../images/clip_image002.jpg" alt="loading.."></div><a class="post-cover-link has-text-centered skeleton" href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9C%B0%E5%9D%80%E5%AD%A6%E4%B9%A0/"><img class="post-cover-img js-img-fadeIn" src="/../images/clip_image002.jpg" alt="loading.." data-backdrop="true"></a></header><section class="content post-card-content p-4 pb-5"><header><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><i class="tag post-item-tag">计算机网络</i></a></header><h2 class="mt-4 mb-0 is-family-serif"><a href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9C%B0%E5%9D%80%E5%AD%A6%E4%B9%A0/">交换机地址学习</a></h2><time class="has-text-grey" datetime="2023-11-07T06:43:19.000Z">2023-11-07</time><p class="is-flex-grow-2 mt-2">实验五 交换机地址自学习一、实验目的1．了解交换机的作用。
-2.查看MAC地址转发表，理解交换机的基于MAC地址转发表的工作过程。
-3.掌握交换机地址自学习的过程。
-二、实验内容1．使用Cisco Packet Tracer画出网络拓扑图。
-2．查看MAC地址转发表。
-3．观察交换机地址自学习的过程。
-三、实验原理以太网交换机的自学习功能：
-我们假设一个以太网交换机有1、2、3、4，共4个接口，每个接口都分别连接了一台计算机，他们的MAC地址分别是A、B、C和D。在最开始的时候，交换机的交换表是空的。假如A向B发送了一帧，从接口1进入交换机，交换机收到这一帧之后会先查找交换表，不过很显然表是空的，交换机查不到应该从哪个接口转发这个帧（就是找不到目的地址为B的表项）。那么接下来，交换机就会把这个帧的源地址A和..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/11/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9C%B0%E5%9D%80%E5%AD%A6%E4%B9%A0/">更多</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap mt-5"><a class="extend prev" rel="prev" href="/archives/page/3/"><i class="iconfont icon-prev has-text-grey"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/5/"><i class="iconfont icon-next has-text-grey"></i></a></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container archives-widget is-in-archive-page"><h3>归档</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
+如果是 systemd，它的策略是接管孤儿进程，并将其变为独立进程路士磊 202118640111 2023/11/15 19:27:45这个..</p><a class="button is-default mt-2 has-text-weight-semibold" href="/2023/11/16/%E5%85%B3%E4%BA%8Elinux%E7%9A%84fork%E8%BF%9B%E7%A8%8B%E4%B8%ADstdout%E4%B8%AD%E7%9A%84%E7%BC%93%E5%86%B2%E9%97%AE%E9%A2%98/">更多</a></section></article><section class="paginator is-flex is-justify-content-flex-end is-flex-wrap-wrap mt-5"><a class="extend prev" rel="prev" href="/archives/page/3/"><i class="iconfont icon-prev has-text-grey"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/5/"><i class="iconfont icon-next has-text-grey"></i></a></section></section><aside class="column is-hidden-mobile is-4-tablet is-3-widescreen"><div style="position: sticky; top: 50px;"><main class="aside-card-container archives-widget is-in-archive-page"><h3>归档</h3><section><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">4</span></li></ul></section></main></div></aside></div></article><script>$claudia.fadeInImage(null, $claudia.blurBackdropImg)
 
 window.addEventListener('resize', $claudia.throttle(function () {
     var images = document.querySelectorAll('.js-img-fadeIn')
