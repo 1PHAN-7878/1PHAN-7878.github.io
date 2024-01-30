@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Spring之MVC</title>
+      <link href="/2024/01/30/Spring%E4%B9%8BMVC/"/>
+      <url>/2024/01/30/Spring%E4%B9%8BMVC/</url>
+      
+        <content type="html"><![CDATA[<h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p>基于Spring的javaweb</p><h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><pre><code class="xml">&lt;dependencies&gt;    &lt;!-- Spring MVC --&gt;    &lt;dependency&gt;        &lt;groupId&gt;org.springframework&lt;/groupId&gt;        &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;        &lt;version&gt;5.3.10&lt;/version&gt; &lt;!-- 使用适用于 Java 17 的 Spring 版本 --&gt;    &lt;/dependency&gt;    &lt;!-- Spring Context --&gt;    &lt;dependency&gt;        &lt;groupId&gt;org.springframework&lt;/groupId&gt;        &lt;artifactId&gt;spring-context&lt;/artifactId&gt;        &lt;version&gt;5.3.10&lt;/version&gt;    &lt;/dependency&gt;    &lt;!-- Spring Core --&gt;    &lt;dependency&gt;        &lt;groupId&gt;org.springframework&lt;/groupId&gt;        &lt;artifactId&gt;spring-core&lt;/artifactId&gt;        &lt;version&gt;5.3.10&lt;/version&gt;    &lt;/dependency&gt;    &lt;!-- Spring Beans --&gt;    &lt;dependency&gt;        &lt;groupId&gt;org.springframework&lt;/groupId&gt;        &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;        &lt;version&gt;5.3.10&lt;/version&gt;    &lt;/dependency&gt;    &lt;!-- Spring Web --&gt;    &lt;dependency&gt;        &lt;groupId&gt;org.springframework&lt;/groupId&gt;        &lt;artifactId&gt;spring-web&lt;/artifactId&gt;        &lt;version&gt;5.3.10&lt;/version&gt;    &lt;/dependency&gt;    &lt;!-- Spring Expression Language (SpEL) --&gt;    &lt;dependency&gt;        &lt;groupId&gt;org.springframework&lt;/groupId&gt;        &lt;artifactId&gt;spring-expression&lt;/artifactId&gt;        &lt;version&gt;5.3.10&lt;/version&gt;    &lt;/dependency&gt;&lt;/dependencies&gt;</code></pre><h2 id="创建SpringMVC控制器"><a href="#创建SpringMVC控制器" class="headerlink" title="创建SpringMVC控制器"></a>创建SpringMVC控制器</h2><pre><code class="java">package com.iphan.controller;import org.springframework.stereotype.Controller;import org.springframework.web.bind.annotation.RequestMapping;import org.springframework.web.bind.annotation.ResponseBody;@Controllerpublic class UserController {    @RequestMapping("/test")    @ResponseBody    public String save(){        System.out.println("user is saving");        return "{'info': 'SringMVC'}";    }}</code></pre><h2 id="配置SpringConfig"><a href="#配置SpringConfig" class="headerlink" title="配置SpringConfig"></a>配置SpringConfig</h2><pre><code class="java">package com.iphan.config;import org.springframework.context.annotation.ComponentScan;import org.springframework.context.annotation.Configuration;@Configuration@ComponentScan({"com.iphan.controller"})public class SpringMvcConfig {}</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>pr玻璃装饰效果</title>
       <link href="/2024/01/28/pr%E7%8E%BB%E7%92%83%E8%A3%85%E9%A5%B0%E6%95%88%E6%9E%9C/"/>
       <url>/2024/01/28/pr%E7%8E%BB%E7%92%83%E8%A3%85%E9%A5%B0%E6%95%88%E6%9E%9C/</url>
