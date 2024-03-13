@@ -1,0 +1,163 @@
+<!DOCTYPE html><html class="appearance-dark" lang="zh-CN"><head><meta charset="UTF-8"><title>链表相关练习汇总</title><meta name="description" content="welcome！"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><!-- Google Analytics --><!-- End Google Analytics -->
+<!-- Baidu Analytics --><!-- End Baidu Analytics --><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/style/common/bulma.css"><link rel="stylesheet" href="/style/base.css"><link rel="stylesheet" href="/style/common/helper.css"><script src="/js/common.js"></script><link rel="stylesheet" href="/style/post.css"><link rel="stylesheet" href="/style/themes/highlight-theme-light.css"><link rel="stylesheet" href="/style/common/jquery.fancybox.min.css"><script src="/js/highlight.pack.js"></script><meta name="description" content="来源为：LeetCode图解算法数据结构
+图书整理 I书店店员有一张链表形式的书单，每个节点代表一本书，节点中的值表示书的编号。为更方便整理书架，店员需要将书单倒过来排列，就可以从最后一本书开始整理，逐一将书放回到书架上。请倒序返回这个书单链表。
+
+示例 1：
+输入：head = [3,6,4,1]
+输出：[1,4,6,3]
+提示：
+0 &amp;lt;= 链表长度 &amp;lt;= 10000
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val .."><meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">链表相关练习汇总</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E4%B9%A6%E6%95%B4%E7%90%86-I"><span class="toc-text">图书整理 I</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9"><span class="toc-text">删除链表节点</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/java"><i class="tag post-item-tag">java</i></a><a href="/tags/%E7%AE%97%E6%B3%95"><i class="tag post-item-tag">算法</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">链表相关练习汇总</h1><time class="has-text-grey" datetime="2024-03-13T08:34:38.000Z">2024-03-13</time><article class="mt-2 post-content"><p>来源为：LeetCode图解算法数据结构</p>
+<h1 id="图书整理-I"><a href="#图书整理-I" class="headerlink" title="图书整理 I"></a>图书整理 I</h1><p>书店店员有一张链表形式的书单，每个节点代表一本书，节点中的值表示书的编号。为更方便整理书架，店员需要将书单倒过来排列，就可以从最后一本书开始整理，逐一将书放回到书架上。请倒序返回这个书单链表。</p>
+<blockquote>
+<p>示例 1：</p>
+<p>输入：head = [3,6,4,1]</p>
+<p>输出：[1,4,6,3]</p>
+<p>提示：</p>
+<p>0 &lt;= 链表长度 &lt;= 10000</p>
+</blockquote>
+<pre><code class="java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    public int[] reverseBookList(ListNode head) {
+        List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+        ListNode tem = head;
+        while(tem != null){
+            li.add(tem.val);
+            tem = tem.next;
+        }
+        // if (li.isEmpty()) return null; // 处理空链表的情况
+        // ListNode ans = new ListNode(li.get(li.size() - 1));
+        // for(int i = li.size() - 2; i &gt;= 0; i--){
+        //     ListNode ne = new ListNode(li.get(i));
+        //     ne.next = ans;
+        //     ans = ne;
+        // }
+        // return ans;
+
+        for(int i = 0; i &lt; li.size() / 2; i++){
+            Collections.swap(li, i, li.size() - i - 1);
+        }
+        int[] arr = li.stream().mapToInt(Integer::intValue).toArray();
+        return arr;
+    }
+}
+</code></pre>
+<p>改进：</p>
+<pre><code class="java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    public int[] reverseBookList(ListNode head) {
+        //count计数，倒序即可
+        int count = 0;
+        ListNode tem = head;
+        while(tem != null){
+            count++;
+            tem = tem.next;
+        }
+        int[] arr = new int[count];
+        tem = head;
+        while(tem != null){
+            arr[--count] = tem.val;
+            tem = tem.next;
+        }
+        return arr;
+    }
+}
+</code></pre>
+<h1 id="删除链表节点"><a href="#删除链表节点" class="headerlink" title="删除链表节点"></a>删除链表节点</h1><blockquote>
+<p>给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。</p>
+<p>返回删除后的链表的头节点。</p>
+<p>示例 1:</p>
+<p>输入: head = [4,5,1,9], val = 5<br>输出: [4,1,9]<br>解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9.<br>示例 2:</p>
+<p>输入: head = [4,5,1,9], val = 1<br>输出: [4,5,9]<br>解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 5 -&gt; 9.</p>
+</blockquote>
+<pre><code class="java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode deleteNode(ListNode head, int val) {
+        ListNode tem = new ListNode();
+        tem = head;
+        //找到第一个看有么有，没有直接不彳亍
+        while(head != null){
+            if(head.val != val){
+                tem.val = head.val;
+                head = head.next;
+                break;
+            }
+            head = head.next;
+        }
+        ListNode ans = tem;
+//有了头部新建就好
+        while(head != null){
+            if(head.val != val){
+                ListNode li = new ListNode(head.val);
+                tem.next = li;
+                
+                tem = li;
+                
+            }
+            head = head.next;
+        }
+        return ans;
+    }
+}
+</code></pre>
+<p>更新：</p>
+<pre><code class="java">class Solution {
+    public ListNode deleteNode(ListNode head, int val) {
+        ListNode dummy = new ListNode(0);
+        //哑节点
+        dummy.next = head;
+        ListNode prev = dummy;
+        
+        while (prev.next != null) {
+            if (prev.next.val == val) {
+                prev.next = prev.next.next; // 跳过当前节点
+            } else {	//注意这里的else，极端情况下出现空指针。
+                prev = prev.next;
+            }
+        }
+        
+        return dummy.next;
+    }
+}
+</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2024/03/11/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8Bvue/" title="学习记录之vue"><span class="has-text-weight-semibold">下一页: 学习记录之vue</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>

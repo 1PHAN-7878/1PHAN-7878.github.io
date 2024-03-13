@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>链表相关练习汇总</title>
+      <link href="/2024/03/13/%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E6%B1%87%E6%80%BB/"/>
+      <url>/2024/03/13/%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0%E6%B1%87%E6%80%BB/</url>
+      
+        <content type="html"><![CDATA[<p>来源为：LeetCode图解算法数据结构</p><h1 id="图书整理-I"><a href="#图书整理-I" class="headerlink" title="图书整理 I"></a>图书整理 I</h1><p>书店店员有一张链表形式的书单，每个节点代表一本书，节点中的值表示书的编号。为更方便整理书架，店员需要将书单倒过来排列，就可以从最后一本书开始整理，逐一将书放回到书架上。请倒序返回这个书单链表。</p><blockquote><p>示例 1：</p><p>输入：head = [3,6,4,1]</p><p>输出：[1,4,6,3]</p><p>提示：</p><p>0 &lt;= 链表长度 &lt;= 10000</p></blockquote><pre><code class="java">/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode() {} *     ListNode(int val) { this.val = val; } *     ListNode(int val, ListNode next) { this.val = val; this.next = next; } * } */import java.util.ArrayList;import java.util.List;class Solution {    public int[] reverseBookList(ListNode head) {        List&lt;Integer&gt; li = new ArrayList&lt;&gt;();        ListNode tem = head;        while(tem != null){            li.add(tem.val);            tem = tem.next;        }        // if (li.isEmpty()) return null; // 处理空链表的情况        // ListNode ans = new ListNode(li.get(li.size() - 1));        // for(int i = li.size() - 2; i &gt;= 0; i--){        //     ListNode ne = new ListNode(li.get(i));        //     ne.next = ans;        //     ans = ne;        // }        // return ans;        for(int i = 0; i &lt; li.size() / 2; i++){            Collections.swap(li, i, li.size() - i - 1);        }        int[] arr = li.stream().mapToInt(Integer::intValue).toArray();        return arr;    }}</code></pre><p>改进：</p><pre><code class="java">/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode() {} *     ListNode(int val) { this.val = val; } *     ListNode(int val, ListNode next) { this.val = val; this.next = next; } * } */import java.util.ArrayList;import java.util.List;class Solution {    public int[] reverseBookList(ListNode head) {        //count计数，倒序即可        int count = 0;        ListNode tem = head;        while(tem != null){            count++;            tem = tem.next;        }        int[] arr = new int[count];        tem = head;        while(tem != null){            arr[--count] = tem.val;            tem = tem.next;        }        return arr;    }}</code></pre><h1 id="删除链表节点"><a href="#删除链表节点" class="headerlink" title="删除链表节点"></a>删除链表节点</h1><blockquote><p>给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。</p><p>返回删除后的链表的头节点。</p><p>示例 1:</p><p>输入: head = [4,5,1,9], val = 5<br>输出: [4,1,9]<br>解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9.<br>示例 2:</p><p>输入: head = [4,5,1,9], val = 1<br>输出: [4,5,9]<br>解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 5 -&gt; 9.</p></blockquote><pre><code class="java">/** * Definition for singly-linked list. * public class ListNode { *     int val; *     ListNode next; *     ListNode(int x) { val = x; } * } */class Solution {    public ListNode deleteNode(ListNode head, int val) {        ListNode tem = new ListNode();        tem = head;        //找到第一个看有么有，没有直接不彳亍        while(head != null){            if(head.val != val){                tem.val = head.val;                head = head.next;                break;            }            head = head.next;        }        ListNode ans = tem;//有了头部新建就好        while(head != null){            if(head.val != val){                ListNode li = new ListNode(head.val);                tem.next = li;                                tem = li;                            }            head = head.next;        }        return ans;    }}</code></pre><p>更新：</p><pre><code class="java">class Solution {    public ListNode deleteNode(ListNode head, int val) {        ListNode dummy = new ListNode(0);        //哑节点        dummy.next = head;        ListNode prev = dummy;                while (prev.next != null) {            if (prev.next.val == val) {                prev.next = prev.next.next; // 跳过当前节点            } else {//注意这里的else，极端情况下出现空指针。                prev = prev.next;            }        }                return dummy.next;    }}</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>学习记录之vue</title>
       <link href="/2024/03/11/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8Bvue/"/>
       <url>/2024/03/11/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8Bvue/</url>
