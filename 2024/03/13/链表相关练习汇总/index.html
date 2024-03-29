@@ -16,7 +16,7 @@
  *     ListNode() {}
  *     ListNode(int val) { this.val .."><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">链表相关练习汇总</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E4%B9%A6%E6%95%B4%E7%90%86-I"><span class="toc-text">图书整理 I</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9"><span class="toc-text">删除链表节点</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/java"><i class="tag post-item-tag">java</i></a><a href="/tags/%E7%AE%97%E6%B3%95"><i class="tag post-item-tag">算法</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">链表相关练习汇总</h1><time class="has-text-grey" datetime="2024-03-13T08:34:38.000Z">2024-03-13</time><article class="mt-2 post-content"><p>来源为：LeetCode图解算法数据结构</p>
+</head><body class="is-flex is-flex-direction-column"><header class="header-widget is-flex-shrink-0 is-hidden-mobile"><div class="container is-fullhd is-flex is-justify-content-space-between is-align-items-center is-full-height"><section class="is-hidden-mobile is-flex-shrink-0"><h2><a href="/">1PHAN's blog</a></h2></section><h3 class="is-hidden-mobile is-family-serif is-full-height is-flex is-align-items-center is-flex-shrink-0"><div class="is-full-height" id="postTopic"><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">链表相关练习汇总</p><p class="is-full-height is-flex-shrink-0 is-flex is-align-items-center is-justify-content-center">点击返回顶部</p></div></h3><aside class="is-flex-shrink-0"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></aside></div></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/">首页</a></h3><h3 class="is-inline-block"><a href="/about">关于</a></h3><h3 class="is-inline-block"><a href="/archives">归档</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E4%B9%A6%E6%95%B4%E7%90%86-I"><span class="toc-text">图书整理 I</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9"><span class="toc-text">删除链表节点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E5%80%92%E7%BD%AE"><span class="toc-text">链表倒置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E5%80%92%E6%95%B0%E7%AC%ACi%E4%B8%AA%E8%8A%82%E7%82%B9%E8%8E%B7%E5%8F%96"><span class="toc-text">链表倒数第i个节点获取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E5%90%88%E5%B9%B6"><span class="toc-text">链表合并</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4"><span class="toc-text">链表相交</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E5%A4%8D%E5%88%B6"><span class="toc-text">链表复制</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/tags/java"><i class="tag post-item-tag">java</i></a><a href="/tags/%E7%AE%97%E6%B3%95"><i class="tag post-item-tag">算法</i></a></header><h1 class="mt-0 mb-1 is-family-serif" id="postTitle">链表相关练习汇总</h1><time class="has-text-grey" datetime="2024-03-13T08:34:38.000Z">2024-03-13</time><article class="mt-2 post-content"><p>来源为：LeetCode图解算法数据结构</p>
 <h1 id="图书整理-I"><a href="#图书整理-I" class="headerlink" title="图书整理 I"></a>图书整理 I</h1><p>书店店员有一张链表形式的书单，每个节点代表一本书，节点中的值表示书的编号。为更方便整理书架，店员需要将书单倒过来排列，就可以从最后一本书开始整理，逐一将书放回到书架上。请倒序返回这个书单链表。</p>
 <blockquote>
 <p>示例 1：</p>
@@ -160,4 +160,326 @@ class Solution {
     }
 }
 </code></pre>
-</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><em></em><a class="button is-default" href="/2024/03/11/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8Bvue/" title="学习记录之vue"><span class="has-text-weight-semibold">下一页: 学习记录之vue</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
+<h1 id="链表倒置"><a href="#链表倒置" class="headerlink" title="链表倒置"></a>链表倒置</h1><p>开辟新空间</p>
+<pre><code class="java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+import java.util.*;
+class Solution {
+    public ListNode trainningPlan(ListNode head) {
+        if(head == null){
+            return head;
+        }
+        List&lt;Integer&gt; l = new ArrayList&lt;&gt;();
+        ListNode l1 = head;
+        while(l1 != null){
+            l.add(l1.val);
+            l1 = l1.next;
+        }
+        ListNode ansHead = new ListNode();
+        ListNode ans = ansHead;
+        
+        for(int i = l.size() - 1; i &gt;= 0; i--){
+            ListNode tem = new ListNode();
+            tem.val = l.get(i);
+            ansHead.next = tem;
+            ansHead = tem;
+        }
+        return ans.next;
+    }
+}
+</code></pre>
+<p> 原地倒置</p>
+<pre><code class="java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+import java.util.*;
+class Solution {
+    public ListNode trainningPlan(ListNode head) {
+        if(head == null){
+            return head;
+        }
+        
+        ListNode pre = null;//是最终的，在最末尾，左部
+        ListNode tem = null;//用于中途放置head的下一个
+        while(head != null){
+            tem = head.next;
+            head.next = pre;
+            pre = head;
+            head = tem;
+            
+        }
+        return pre;
+    }
+}
+</code></pre>
+<h1 id="链表倒数第i个节点获取"><a href="#链表倒数第i个节点获取" class="headerlink" title="链表倒数第i个节点获取"></a>链表倒数第i个节点获取</h1><blockquote>
+<p>给定一个头节点为 head 的链表用于记录一系列核心肌群训练项目编号，请查找并返回倒数第 cnt 个训练项目编号。</p>
+<p>示例 1：</p>
+<p>输入：head = [2,4,7,8], cnt = 1<br>输出：8</p>
+</blockquote>
+<pre><code class="java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+ import java.util.*;
+class Solution {
+    public ListNode trainingPlan(ListNode head, int cnt) {
+        int count = 0;
+        ListNode tem = head;
+        while(tem != null){
+            count++;
+            tem = tem.next;
+        }
+        tem = head;
+        for(int i = count; i != cnt; i--){
+            tem = tem.next;
+        }
+        return tem;
+    }
+}
+</code></pre>
+<p>上面是先遍历一遍，再去找到相应位置的。还可以采用双指针的方式来做，中间相差了cnt个数，快的指针到了null，也就是low到倒数第cnt个。</p>
+<pre><code class="java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+ import java.util.*;
+class Solution {
+    public ListNode trainingPlan(ListNode head, int cnt) {
+        ListNode fast = head;
+        ListNode low = head;
+        for(int i = 1; i &lt;= cnt; i++){
+            fast = fast.next;
+        }
+        while(fast != null){
+            fast = fast.next;
+            low = low.next;
+        }
+        return low;
+    }
+}
+</code></pre>
+<h1 id="链表合并"><a href="#链表合并" class="headerlink" title="链表合并"></a>链表合并</h1><blockquote>
+<p>给定两个以 有序链表 形式记录的训练计划 l1、l2，分别记录了两套核心肌群训练项目编号，请合并这两个训练计划，按训练项目编号 升序 记录于链表并返回。</p>
+<p>注意：新链表是通过拼接给定的两个链表的所有节点组成的。</p>
+<p>示例 1：</p>
+<p>输入：l1 = [1,2,4], l2 = [1,3,4]<br>输出：[1,1,2,3,4,4]<br>示例 2：</p>
+<p>输入：l1 = [], l2 = []<br>输出：[]<br>示例 3：</p>
+<p>输入：l1 = [], l2 = [0]<br>输出：[0]</p>
+</blockquote>
+<pre><code class="java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode trainningPlan(ListNode l1, ListNode l2) {
+        ListNode anshead = new ListNode();
+        ListNode ans = anshead;
+        while(l1 != null &amp;&amp; l2 != null){
+            if(l1.val &gt;= l2.val){
+                ListNode li = new ListNode();
+                li.val = l2.val;
+                l2 = l2.next;
+                anshead.next = li;
+                anshead = anshead.next;
+            }else{
+                ListNode li = new ListNode();
+                li.val = l1.val;
+                l1 = l1.next;
+                anshead.next = li;
+                anshead = anshead.next;
+            }
+        }
+        while(l1 != null){
+            ListNode li = new ListNode();
+                li.val = l1.val;
+                l1 = l1.next;
+                anshead.next = li;
+                anshead = anshead.next;
+        }
+        while(l2 != null){
+            ListNode li = new ListNode();
+                li.val = l2.val;
+                l2 = l2.next;
+                anshead.next = li;
+                anshead = anshead.next;
+        }
+        return ans.next;
+    }
+}
+</code></pre>
+<p>当然这道题没说得重新开内存，直接赋值l1，l2就好了，这么写内存开销大了就。</p>
+<h1 id="链表相交"><a href="#链表相交" class="headerlink" title="链表相交"></a>链表相交</h1><blockquote>
+<p>输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3<br>输出：Reference of the node with value = 8<br>解释：第一个正式训练项目编号为 8 （注意，如果两个列表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,0,1,8,4,5]。在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。</p>
+</blockquote>
+<pre><code class="java">/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+class Solution {
+    ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int len1 = 0, len2 = 0;
+        ListNode tem1 = headA;
+        ListNode tem2 = headB;
+        while(tem1!= null){
+            len1++;
+            tem1 = tem1.next;
+        }
+        while(tem2!= null){
+            len2++;
+            tem2= tem2.next;
+        }
+        tem1 = headA;
+        tem2 = headB;
+        if(len1 &gt;= len2){
+            for(int i = 1; i &lt;= len1 - len2; i++){
+                tem1 = tem1.next;
+            }
+        }else{
+            for(int i = 1; i &lt;= len2 - len1; i++){
+                tem2 = tem2.next;
+            }
+        }
+        while(tem1 != null){
+            if(tem1.val == tem2.val){
+                return tem1;
+            }else{
+                tem1=tem1.next;tem2=tem2.next;
+            }
+        }
+        return null;
+
+    }
+}
+</code></pre>
+<p>上述解法找到两个差了长度多少，长的先找，短的等到长的与其长度一样的时候在一起向后走，直到相遇或者null。</p>
+<p>但还是下面这种更巧妙。</p>
+<p><img src="/../images/image-20240320172224817.png" alt="image-20240320172224817"></p>
+<pre><code class="java">public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode A = headA, B = headB;
+        while (A != B) {
+            A = A != null ? A.next : headB;
+            B = B != null ? B.next : headA;
+        }
+        return A;
+    }
+}
+</code></pre>
+<blockquote>
+<p><img src="/../images/image-20240320172253779.png" alt="image-20240320172253779"></p>
+</blockquote>
+<p>泪目了。</p>
+<h1 id="链表复制"><a href="#链表复制" class="headerlink" title="链表复制"></a>链表复制</h1><p>请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。</p>
+<p><img src="/../images/image-20240329091829400.png" alt="image-20240329091829400"></p>
+<p>==是把内存地址重新开辟==</p>
+<p>简单思路，先来直接新的next节点，进行连接。后续每次O(n)查找相应对应位置的信息，遍历啊。</p>
+<pre><code class="java">/*
+// Definition for a Node.
+class Node {
+    int val;
+    Node next;
+    Node random;
+
+    public Node(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+}
+*/
+class Solution {
+    public Node copyRandomList(Node head) {
+        Node dummy = new Node(0);
+        Node li = dummy;
+        Node tem = head;
+        while(tem != null){
+            Node tem1 = new Node(tem.val);
+            tem1.next = tem.next;
+            li.next = tem1;
+            li = li.next;
+            tem = tem.next;
+        }
+        tem = head;
+        li = dummy.next;
+        
+        while(tem != null){
+            if(tem.random != null){
+                Node nodeyuan = head;
+                Node nodehou = dummy.next;
+                while(nodeyuan != tem.random){
+                    nodeyuan = nodeyuan.next;
+                    nodehou = nodehou.next;
+                }
+                li.random = nodehou;
+            }
+            tem = tem.next;
+            li = li.next;
+        }
+        return dummy.next;
+    }
+}
+</code></pre>
+<p>优化的话，每次查询之前的random新的节点，使用Map</p>
+<pre><code class="java">class Solution {
+    public Node copyRandomList(Node head) {
+        if(head == null){
+            return null;
+        }
+        Node cur = head;
+        Map&lt;Node, Node&gt; map = new HashMap&lt;Node, Node&gt;();
+        while(cur != null){
+            map.put(cur, new Node(cur.val));
+            cur = cur.next;
+        }
+        cur = head;
+        while(cur != null){
+            map.get(cur).next = map.get(cur.next);
+            map.get(cur).random = map.get(cur.random);
+            cur = cur.next;
+        }
+        return map.get(head);
+    }
+}
+</code></pre>
+</article><section class="jump-container is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-default" href="/2024/03/29/%E6%95%B0%E7%BB%84%E7%9B%B8%E5%85%B3%E7%BB%83%E4%B9%A0/" title="数组相关练习"><i class="iconfont icon-prev mr-2 has-text-grey"></i><span class="has-text-weight-semibold">上一页: 数组相关练习</span></a><a class="button is-default" href="/2024/03/11/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E4%B9%8Bvue/" title="学习记录之vue"><span class="has-text-weight-semibold">下一页: 学习记录之vue</span><i class="iconfont icon-next ml-2 has-text-grey"></i></a></section></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com//"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/https://github.com/1PHAN-7878"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com//"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> 1PHAN 2024</span></p><div class="is-flex is-justify-content-center is-flex-wrap-wrap"><p>Powered by Hexo &verbar;&nbsp;</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by Haojen&nbsp;</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div><div><span></span></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script src="/js/jquery-3.6.1.min.js"></script><script src="/js/jquery-fancybox.min.js"></script><script src="/js/img_zoom.js"></script><script src="/js/post.js"></script></body></html>
